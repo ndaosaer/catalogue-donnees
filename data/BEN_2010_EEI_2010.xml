@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<codeBook version="1.2.2" ID="BEN-2010-HRBF-v01-M-v01" xml-lang="fr" xmlns="http://www.icpsr.umich.edu/DDI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd">
+  <docDscr>
+    <citation>
+      <titlStmt>
+        <titl>
+          Enquête d'évaluation d'impact du financement basé sur les résultats en santé 2010-2011 du Bénin
+        </titl>
+        <IDNo>
+          DDI-WB-BEN-2010-HRBF-v01-M-v01-A-PUF
+        </IDNo>
+      </titlStmt>
+      <prodStmt>
+        <producer abbr="ENSAE" affiliation="ANSD">
+          Ecole nationale de la Statistique et de l'Analyse économique
+        </producer>
+        <prodDate date="2026-01-29">
+          2026-01-29
+        </prodDate>
+        <software version="4.0.10" date="2018-05-02">
+          Nesstar Publisher
+        </software>
+      </prodStmt>
+    </citation>
+  </docDscr>
+  <stdyDscr>
+    <citation>
+      <titlStmt>
+        <titl>
+          Enquête d'évaluation d'impact du financement basé sur les résultats en santé 2010-2011 du Bénin
+        </titl>
+        <subTitl>
+          Référence
+        </subTitl>
+        <altTitl>
+          EEIFRS
+        </altTitl>
+        <parTitl>
+          Benin - Health Results-Based Financing Impact Evaluation Survey 2010-2011, Baseline
+        </parTitl>
+        <IDNo>
+          BEN-2010-HRBF-v01-M-v01
+        </IDNo>
+      </titlStmt>
+      <rspStmt>
+        <AuthEnty affiliation="Banque Mondiale">
+          Christophe Lemière
+        </AuthEnty>
+        <AuthEnty affiliation="Banque Mondiale">
+          Damien de Walque
+        </AuthEnty>
+      </rspStmt>
+      <prodStmt>
+        <producer abbr="WB">
+          Banque Mondiale
+        </producer>
+        <producer affiliation="Systemas Integrales">
+          Mario Navarrete
+        </producer>
+        <producer affiliation="Banque Mondiale">
+          Nono Ayivi-Guedehoussou
+        </producer>
+        <producer affiliation="Banque Mondiale">
+          Maud Juquois
+        </producer>
+        <copyright>
+          © 2012, Banque Mondiale
+        </copyright>
+        <prodDate date="2012-03">
+          2012-03
+        </prodDate>
+        <software version="4.0.10" date="2018-05-02">
+          Nesstar Publisher
+        </software>
+        <fundAg>
+          Banque Mondiale - Health Results Innovation Trust Fund (HRITF)
+        </fundAg>
+        <fundAg>
+          Gouvernement Norvégien
+        </fundAg>
+      </prodStmt>
+      <distStmt>
+        <distrbtr abbr="WB" URI="https://microdata.worldbank.org">
+          Banque Mondiale - Bibliothèque de Microdonnées
+        </distrbtr>
+        <contact affiliation="Banque Mondiale" email="dmckenzie@worldbank.org">
+          David McKenzie
+        </contact>
+        <distDate date="2012-03"/>
+      </distStmt>
+      <serStmt>
+        <serName>
+          Enquête d'évaluation des services sociaux [hh/spa]
+        </serName>
+        <serInfo>
+          Health Results-Based Financing Impact Evaluations
+        </serInfo>
+      </serStmt>
+      <verStmt>
+        <version date="2012-03">
+          Version 01
+        </version>
+        <notes>
+          Fichier d'utilisation publique (PUF) - Baseline de l'évaluation d'impact
+        </notes>
+      </verStmt>
+    </citation>
+    <stdyInfo>
+      <subject>
+        <keyword vocab="CESSDA">
+          Financement basé sur les résultats
+        </keyword>
+        <keyword vocab="CESSDA">
+          Financement basé sur la performance
+        </keyword>
+        <keyword vocab="CESSDA">
+          Systèmes de santé
+        </keyword>
+        <keyword vocab="CESSDA">
+          Santé maternelle
+        </keyword>
+        <keyword vocab="CESSDA">
+          Santé infantile
+        </keyword>
+        <keyword vocab="CESSDA">
+          Qualité des soins
+        </keyword>
+        <keyword vocab="CESSDA">
+          Agents de santé
+        </keyword>
+        <keyword vocab="CESSDA">
+          Établissements de santé
+        </keyword>
+        <keyword vocab="CESSDA">
+          Performance des services de santé
+        </keyword>
+        <topcClas vocab="CESSDA" vocabURI="http://www.nesstar.org/rdf/common">
+          Systèmes et services de santé
+        </topcClas>
+        <topcClas vocab="CESSDA" vocabURI="http://www.nesstar.org/rdf/common">
+          Financement de la santé
+        </topcClas>
+      </subject>
+      <abstract>
+        <![CDATA[Cette Évaluation d’Impact (IE) a deux objectifs principaux : (i) mesurer l’impact de la RBF sur les résultats de santé et (ii) comprendre les facteurs à l’origine de cet impact. Nous émettons l’hypothèse que la RBF améliorera deux issues de santé liées à la santé maternelle : (i) la qualité des soins maternels et (ii) l’équité dans l’utilisation des soins maternels.
+De plus, l’enquête vise à explorer trois questions supplémentaires : la relation entre la RBF et (i) la motivation des agents de santé – on s’attend à ce que la RBF augmente la satisfaction professionnelle des professionnels de santé ; (ii) la corruption – les professionnels de santé (HW) auront intérêt à réduire le temps passé sur des « stratégies de survie » ou des comportements corrompus : (iii) les comportements de recherche de soins de santé – bien que la RBF cible principalement la santé maternelle, Cela pourrait également avoir un impact sur les indicateurs d’autres services de santé, et plus largement sur les comportements de recherche de soins de santé.]]>
+      </abstract>
+      <sumDscr>
+        <timePrd date="2010-12" event="start"/>
+        <timePrd date="2011-10" event="end"/>
+        <collDate date="2010-12" event="start" cycle="Établissements traitement"/>
+        <collDate date="2011-03" event="end" cycle="Établissements traitement"/>
+        <collDate date="2011-04" event="start" cycle="Ménages"/>
+        <collDate date="2011-06" event="end" cycle="Ménages"/>
+        <collDate date="2011-08" event="start" cycle="Établissements contrôle"/>
+        <collDate date="2011-10" event="end" cycle="Établissements contrôle"/>
+        <nation abbr="BEN">
+          Bénin
+        </nation>
+        <geogCover>
+          <![CDATA[8 districts sanitaires sur 34 au niveau national, couvrant environ 2 377 559 personnes (23% de la population). 
+Milieux urbain et rural.]]>
+        </geogCover>
+        <anlyUnit>
+          Districts sanitaires, établissements de santé, agents de santé, patients, ménages
+        </anlyUnit>
+        <dataKind>
+          Données échantillonées [ssd]
+        </dataKind>
+      </sumDscr>
+    </stdyInfo>
+    <method>
+      <dataColl>
+        <timeMeth>
+          Enquête transversale (baseline d'une évaluation longitudinale)
+        </timeMeth>
+        <dataCollector>
+          Institut National de la Statistique et de l'Analyse Économique (INSAE)
+        </dataCollector>
+        <collMode>
+          Interview face à face [f2f]
+        </collMode>
+        <resInstru>
+          <![CDATA[Les instruments suivants sont utilisés dans tous les districts sélectionnés :
+Évaluation au niveau du district : 1.1. Enquête sur le coordinateur du district de santé (HDC) et son équipe
+Évaluations des établissements de santé : 2,1. Enquête sur les établissements de santé (partie 1 : aspects administratifs et financiers) ; 2.2. Enquête sur les établissements de santé (partie 2 : aspects cliniques)
+Enquêtes auprès des professionnels de santé : 3.1. Visites non annoncées ; 3.2. Enquête générale sur les professionnels de santé ; 3.3. Test des compétences et des connaissances ; 3.4. Observations cliniques directes (DCO) ; 3.5. Observation participante
+Enquêtes auprès des patients : 4,1. Enquête générale auprès des patientes sortantes et questionnaire supplémentaire pour les femmes ayant accouché ; 4.3. Questionnaire supplémentaire pour les femmes orientées
+Enquêtes auprès des ménages : 5.1. Enquête générale des ménages
+Enquête sur la drogue.]]>
+        </resInstru>
+        <sources>
+          <dataSrc>
+            <![CDATA[Enquêtes auprès des établissements de santé
+
+Enquêtes auprès des agents de santé
+
+Observations cliniques directes
+
+Enquêtes patients
+
+Enquêtes ménages]]>
+          </dataSrc>
+        </sources>
+      </dataColl>
+    </method>
+    <dataAccs>
+      <setAvail>
+        <accsPlac URI="https://microdata.worldbank.org/index.php/catalog/2176">
+          Banque Mondiale - Bibliothèque de Microdonnées
+        </accsPlac>
+        <accsPlac URI="https://catalog.ihsn.org/catalog/2336">
+          IHSN - Catalogue Central
+        </accsPlac>
+      </setAvail>
+      <useStmt>
+        <restrctn>
+          Accès sur demande via la Bibliothèque de Microdonnées de la Banque Mondiale
+        </restrctn>
+        <contact affiliation="ONU" URI="https://doi.org/10.48529/qkmg-r734">
+          Banque Mondiale
+        </contact>
+        <citReq>
+          Christophe Lemière et Damien de Walque. Bénin - Enquête d'évaluation d'impact du financement basé sur les résultats en santé 2010-2011, Baseline. Réf. BEN_2010_HRBF_v01_M_v01_A_PUF. Dataset téléchargé de [microdata.worldbank.org] le [date].
+        </citReq>
+        <conditions>
+          <![CDATA[L’utilisation du jeu de données doit être reconnue à l’aide d’une citation qui inclurait :
+l’identification de l’enquêteur principal
+Le titre de l’enquête (incluant le pays, l’acronyme et l’année de mise en œuvre)
+Le numéro de référence de l’enquête
+La source et la date de téléchargement]]>
+        </conditions>
+        <disclaimer>
+          L'utilisateur des données reconnaît que le collecteur original des données, le distributeur autorisé des données et les agences de financement concernées ne portent aucune responsabilité quant à l'utilisation des données ou aux interprétations ou inférences fondées sur de telles utilisations.
+        </disclaimer>
+      </useStmt>
+    </dataAccs>
+    <othrStdyMat>
+      <relMat>
+        <citation>
+          <titlStmt>
+            <titl>
+              Exploring implementation practices in results-based financing: the case of the verification in Benin
+            </titl>
+          </titlStmt>
+          <holdings URI="https://link.springer.com/article/10.1186/s12913-017-2148-9"/>
+        </citation>
+      </relMat>
+      <relMat>
+        <citation>
+          <titlStmt>
+            <titl>
+              Results-Based Financing for Health - Performance Incentives in Global Health: Potential and Pitfalls
+            </titl>
+          </titlStmt>
+          <holdings URI="https://documents1.worldbank.org/curated/en/260981468150303844/pdf/541060BRI0RBF110Box345636B01PUBLIC1.pdf"/>
+        </citation>
+      </relMat>
+      <relPubl>
+        <citation>
+          <titlStmt>
+            <titl/>
+          </titlStmt>
+          <holdings URI="https://publichealth.jhu.edu/institute-for-international-programs/our-work/past-projects/health-results-based-financing-impact-evaluation-and-monitoring-technical-assistance-for-health-measurement"/>
+        </citation>
+      </relPubl>
+    </othrStdyMat>
+  </stdyDscr>
+  <fileDscr ID="F1" URI="BEN_2010_EEI_2010.Nesstar?Index=0&amp;Name=benhrbf2_d">
+    <fileTxt>
+      <fileName>
+        benhrbf2_d.NSDstat
+      </fileName>
+      <fileCont>
+        Données district - Coordonnateurs de districts sanitaires
+      </fileCont>
+      <dimensns>
+        <caseQnty>
+          0
+        </caseQnty>
+        <varQnty>
+          0
+        </varQnty>
+      </dimensns>
+      <fileType>
+        Nesstar 200801
+      </fileType>
+    </fileTxt>
+  </fileDscr>
+  <dataDscr>
+    <varGrp ID="VG1" type="subject"/>
+  </dataDscr>
+</codeBook>

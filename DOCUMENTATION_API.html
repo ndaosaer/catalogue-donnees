@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation API - Catalogue de Données</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            font-size: 2.2rem;
+            color: #1e40af;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #2563eb;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section h3 {
+            font-size: 1.6rem;
+            color: #334155;
+            margin: 30px 0 15px 0;
+        }
+
+        .section h4 {
+            font-size: 1.2rem;
+            color: #475569;
+            margin: 20px 0 10px 0;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border-left: 5px solid #2563eb;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .info-box.success {
+            background: #d1fae5;
+            border-left-color: #10b981;
+        }
+
+        .info-box.warning {
+            background: #fef3c7;
+            border-left-color: #f59e0b;
+        }
+
+        .info-box.danger {
+            background: #fee2e2;
+            border-left-color: #ef4444;
+        }
+
+        .endpoint-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            transition: all 0.3s;
+        }
+
+        .endpoint-card:hover {
+            border-color: #2563eb;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+        }
+
+        .method-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+
+        .method-get {
+            background: #10b981;
+            color: white;
+        }
+
+        .method-post {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .endpoint-url {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            color: #1e40af;
+            margin: 15px 0;
+            padding: 12px;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .code-block .comment {
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        .code-block .keyword {
+            color: #c792ea;
+        }
+
+        .code-block .string {
+            color: #c3e88d;
+        }
+
+        .code-block .function {
+            color: #82aaff;
+        }
+
+        .code-block .number {
+            color: #f78c6c;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        table th {
+            background: #2563eb;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        table tr:hover {
+            background: #f8fafc;
+        }
+
+        .param-name {
+            font-family: 'Courier New', monospace;
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .param-type {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #e0e7ff;
+            color: #3730a3;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .required {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .optional {
+            color: #64748b;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            border: 2px solid #6366f1;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .example-box h4 {
+            color: #4338ca;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .response-example {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin-top: 15px;
+        }
+
+        .step-by-step {
+            counter-reset: step-counter;
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .step-by-step li {
+            counter-increment: step-counter;
+            margin-bottom: 25px;
+            padding-left: 60px;
+            position: relative;
+        }
+
+        .step-by-step li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .flow-diagram {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 25px 0;
+        }
+
+        .flow-step {
+            background: white;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .flow-step::after {
+            content: '⬇';
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: #2563eb;
+        }
+
+        .flow-step:last-child::after {
+            display: none;
+        }
+
+        .flow-step h4 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background: #fef3c7;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .feature-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #2563eb;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h4 {
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #64748b;
+        }
+
+        .toc {
+            background: #f8fafc;
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+
+        .toc h3 {
+            color: #1e40af;
+            margin-bottom: 15px;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 10px;
+        }
+
+        .toc a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .toc a:hover {
+            color: #1e40af;
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .copy-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-left: 10px;
+            transition: background 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #059669;
+        }
+
+        .live-demo {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .live-demo h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .live-demo input {
+            width: 70%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+
+        .live-demo button {
+            padding: 12px 24px;
+            background: white;
+            color: #10b981;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .live-demo button:hover {
+            background: #f0fdf4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📡 Documentation API</h1>
+            <p>API de Recherche du Catalogue de Données</p>
+        </div>
+
+        <div class="content">
+            <!-- TABLE DES MATIÈRES -->
+            <div class="toc">
+                <h3>📑 Table des matières</h3>
+                <ul>
+                    <li><a href="#introduction">1. Introduction à l'API</a></li>
+                    <li><a href="#quest-ce-que">2. Qu'est-ce qu'une API ?</a></li>
+                    <li><a href="#endpoint">3. L'endpoint de recherche</a></li>
+                    <li><a href="#parametres">4. Paramètres de la requête</a></li>
+                    <li><a href="#reponse">5. Format de la réponse</a></li>
+                    <li><a href="#exemples">6. Exemples d'utilisation</a></li>
+                    <li><a href="#fonctionnement">7. Comment ça fonctionne (Backend)</a></li>
+                    <li><a href="#frontend">8. Utilisation côté Frontend</a></li>
+                    <li><a href="#cas-usage">9. Cas d'usage pratiques</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 1: INTRODUCTION -->
+            <div class="section" id="introduction">
+                <h2>📡 1. Introduction à l'API</h2>
+
+                <div class="info-box">
+                    <h4>Qu'est-ce que l'API du catalogue ?</h4>
+                    <p>
+                        L'API (Application Programming Interface) du catalogue est un <strong>point d'accès HTTP</strong> 
+                        qui permet de rechercher des datasets en envoyant une requête et en recevant les résultats 
+                        au format JSON.
+                    </p>
+                </div>
+
+                <h3>À quoi sert cette API ?</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="icon">🔍</div>
+                        <h4>Recherche dynamique</h4>
+                        <p>Permet à l'interface web d'afficher des résultats de recherche en temps réel</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">⚡</div>
+                        <h4>Performance</h4>
+                        <p>Évite de recharger toute la page, seuls les résultats sont mis à jour</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🔗</div>
+                        <h4>Intégration</h4>
+                        <p>Peut être utilisée par d'autres applications pour interroger le catalogue</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">📊</div>
+                        <h4>Format structuré</h4>
+                        <p>Retourne des données JSON faciles à traiter programmatiquement</p>
+                    </div>
+                </div>
+
+                <div class="info-box success">
+                    <h4>💡 En résumé</h4>
+                    <p>
+                        Quand vous tapez dans la barre de recherche de la page d'accueil et que les résultats 
+                        apparaissent instantanément, c'est grâce à cette API qui travaille en arrière-plan !
+                    </p>
+                </div>
+            </div>
+
+            <!-- SECTION 2: QU'EST-CE QU'UNE API -->
+            <div class="section" id="quest-ce-que">
+                <h2>🤔 2. Qu'est-ce qu'une API ? (Explication simple)</h2>
+
+                <h3>Analogie du restaurant</h3>
+                <div class="flow-diagram">
+                    <div class="flow-step">
+                        <h4>👤 Le client (Navigateur web)</h4>
+                        <p>Vous êtes dans un restaurant et vous voulez manger. Vous ne pouvez pas aller directement en cuisine.</p>
+                    </div>
+                    <div class="flow-step">
+                        <h4>📋 Le serveur (API)</h4>
+                        <p>Le serveur prend votre commande, va en cuisine, et vous rapporte votre plat. C'est l'intermédiaire.</p>
+                    </div>
+                    <div class="flow-step">
+                        <h4>👨‍🍳 La cuisine (Backend Flask)</h4>
+                        <p>Le chef (Flask) prépare votre plat selon votre commande et le donne au serveur.</p>
+                    </div>
+                    <div class="flow-step">
+                        <h4>🍽️ Le plat (Réponse JSON)</h4>
+                        <p>Vous recevez exactement ce que vous avez commandé, prêt à être consommé.</p>
+                    </div>
+                </div>
+
+                <h3>Dans notre catalogue</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Élément du restaurant</th>
+                            <th>Équivalent dans notre API</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Le client</strong></td>
+                            <td>Votre navigateur web (Chrome, Firefox, etc.)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>La commande</strong></td>
+                            <td>Requête HTTP GET avec un terme de recherche (ex: "MICS")</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Le serveur</strong></td>
+                            <td>L'endpoint API <code>/search</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>La cuisine</strong></td>
+                            <td>La fonction Python <code>search()</code> dans app.py</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Le plat</strong></td>
+                            <td>Réponse JSON avec les datasets trouvés</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <h4>🎯 Pourquoi utiliser une API ?</h4>
+                    <p>
+                        Sans API, il faudrait recharger toute la page à chaque recherche. Avec l'API, 
+                        seuls les résultats sont mis à jour, ce qui est beaucoup plus rapide et fluide !
+                    </p>
+                </div>
+            </div>
+
+            <!-- SECTION 3: L'ENDPOINT -->
+            <div class="section" id="endpoint">
+                <h2>🎯 3. L'endpoint de recherche</h2>
+
+                <div class="endpoint-card">
+                    <div>
+                        <span class="method-badge method-get">GET</span>
+                        <strong style="font-size: 1.2rem;">Recherche de datasets</strong>
+                    </div>
+                    <div class="endpoint-url">
+                        http://localhost:5001/search
+                    </div>
+                    <p style="margin-top: 15px; color: #64748b;">
+                        Permet de rechercher des datasets par mot-clé dans le catalogue
+                    </p>
+                </div>
+
+                <h3>Qu'est-ce qu'un endpoint ?</h3>
+                <div class="info-box">
+                    <p>
+                        Un <strong>endpoint</strong> (point de terminaison) est une URL spécifique qui accepte 
+                        des requêtes HTTP et retourne des données. C'est comme une adresse postale : 
+                        vous envoyez votre lettre (requête) à cette adresse, et vous recevez une réponse.
+                    </p>
+                </div>
+
+                <h3>Décomposition de l'URL</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Partie</th>
+                            <th>Valeur</th>
+                            <th>Signification</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Protocole</strong></td>
+                            <td><code>http://</code></td>
+                            <td>Type de communication (HTTP)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hôte</strong></td>
+                            <td><code>localhost</code></td>
+                            <td>Serveur local (votre ordinateur)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Port</strong></td>
+                            <td><code>5001</code></td>
+                            <td>Port sur lequel Flask écoute</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Chemin</strong></td>
+                            <td><code>/search</code></td>
+                            <td>Route de recherche</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box warning">
+                    <h4>⚠️ En production</h4>
+                    <p>
+                        En production (site web déployé), l'URL serait :
+                        <br><code>https://monsite.com/search</code>
+                        <br>Au lieu de <code>http://localhost:5001/search</code>
+                    </p>
+                </div>
+            </div>
+
+            <!-- SECTION 4: PARAMÈTRES -->
+            <div class="section" id="parametres">
+                <h2>⚙️ 4. Paramètres de la requête</h2>
+
+                <h3>Paramètre unique : <code>q</code></h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Type</th>
+                            <th>Requis ?</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="param-name">q</span></td>
+                            <td><span class="param-type">string</span></td>
+                            <td><span class="optional">Optionnel</span></td>
+                            <td>Le terme de recherche (mot-clé à chercher dans les datasets)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Comment passer le paramètre ?</h3>
+                <div class="info-box">
+                    <h4>Format de l'URL avec paramètre</h4>
+                    <div class="code-block">
+http://localhost:5001/search<span class="keyword">?</span><span class="param-name">q</span>=<span class="string">votre_recherche</span>
+                    </div>
+                    <p style="margin-top: 15px;">
+                        Le <code>?</code> indique le début des paramètres.<br>
+                        Ensuite, on a <code>nom_paramètre=valeur</code>
+                    </p>
+                </div>
+
+                <h3>Exemples d'URLs complètes</h3>
+                <div class="example-box">
+                    <h4>Exemple 1 : Rechercher "MICS"</h4>
+                    <div class="code-block">
+http://localhost:5001/search?q=MICS
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4>Exemple 2 : Rechercher "démocratie"</h4>
+                    <div class="code-block">
+http://localhost:5001/search?q=démocratie
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4>Exemple 3 : Rechercher "Bénin 2024"</h4>
+                    <div class="code-block">
+http://localhost:5001/search?q=Bénin 2024
+                    </div>
+                    <p style="color: #64748b; margin-top: 10px;">
+                        <small>Note: Les espaces sont automatiquement convertis en %20 dans l'URL</small>
+                    </p>
+                </div>
+
+                <div class="info-box warning">
+                    <h4>⚠️ Si aucun paramètre n'est fourni</h4>
+                    <p>
+                        Si vous appelez <code>/search</code> sans paramètre <code>q</code> ou avec 
+                        <code>q</code> vide, l'API retourne un tableau vide :
+                    </p>
+                    <div class="code-block">
+{ <span class="string">"results"</span>: [] }
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 5: RÉPONSE -->
+            <div class="section" id="reponse">
+                <h2>📦 5. Format de la réponse</h2>
+
+                <h3>Type de réponse</h3>
+                <div class="info-box">
+                    <p>
+                        L'API retourne toujours un objet JSON avec une clé <code>results</code> 
+                        contenant un tableau de datasets trouvés.
+                    </p>
+                </div>
+
+                <h3>Structure de la réponse</h3>
+                <div class="code-block">
+{
+  <span class="string">"results"</span>: [
+    {
+      <span class="string">"id"</span>: <span class="string">"ID_DU_DATASET"</span>,
+      <span class="string">"title"</span>: <span class="string">"Titre du dataset"</span>,
+      <span class="string">"abstract"</span>: <span class="string">"Résumé (max 200 caractères)..."</span>
+    },
+    <span class="comment">// ... autres résultats</span>
+  ]
+}
+                </div>
+
+                <h3>Champs retournés pour chaque résultat</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Champ</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="param-name">id</span></td>
+                            <td><span class="param-type">string</span></td>
+                            <td>Identifiant unique du dataset (ex: "BEN-Afrobarometer-EOP-2025-001")</td>
+                        </tr>
+                        <tr>
+                            <td><span class="param-name">title</span></td>
+                            <td><span class="param-type">string</span></td>
+                            <td>Titre complet de l'enquête</td>
+                        </tr>
+                        <tr>
+                            <td><span class="param-name">abstract</span></td>
+                            <td><span class="param-type">string</span></td>
+                            <td>Résumé tronqué à 200 caractères + "..." si nécessaire</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Exemple de réponse réelle</h3>
+                <div class="example-box">
+                    <h4>Requête : <code>/search?q=MICS</code></h4>
+                    <div class="response-example">
+{
+  <span class="string">"results"</span>: [
+    {
+      <span class="string">"id"</span>: <span class="string">"DDI-BEN-INS-MICS-2014-V2.0"</span>,
+      <span class="string">"title"</span>: <span class="string">"Bénin - Enquête par Grappe à Indicateurs Multiples MICS 2021-2022"</span>,
+      <span class="string">"abstract"</span>: <span class="string">"Le programme mondial des enquêtes MICS a été élaboré par l'UNICEF dans les années 1990 en tant que programme international d'enquêtes auprès des ménages qui vise à soutenir les pays dans la collecte..."</span>
+    }
+  ]
+}
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4>Requête : <code>/search?q=xyz</code> (aucun résultat)</h4>
+                    <div class="response-example">
+{
+  <span class="string">"results"</span>: []
+}
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 6: EXEMPLES -->
+            <div class="section" id="exemples">
+                <h2>💻 6. Exemples d'utilisation</h2>
+
+                <h3>Exemple 1 : Tester dans le navigateur</h3>
+                <div class="info-box success">
+                    <h4>📌 Le plus simple !</h4>
+                    <p>
+                        Ouvrez votre navigateur et tapez directement l'URL :
+                    </p>
+                    <div class="code-block">
+http://localhost:5001/search?q=MICS
+                    </div>
+                    <p style="margin-top: 15px;">
+                        Le navigateur affichera le JSON retourné par l'API !
+                    </p>
+                </div>
+
+                <h3>Exemple 2 : Utiliser curl (Terminal)</h3>
+                <div class="code-block">
+<span class="comment"># Rechercher "démocratie"</span>
+curl <span class="string">"http://localhost:5001/search?q=démocratie"</span>
+
+<span class="comment"># Avec formatage JSON (jq installé)</span>
+curl <span class="string">"http://localhost:5001/search?q=MICS"</span> | jq
+                </div>
+
+                <h3>Exemple 3 : JavaScript (AJAX avec jQuery)</h3>
+                <div class="code-block">
+<span class="comment">// Recherche avec jQuery</span>
+$.<span class="function">get</span>(<span class="string">'/search'</span>, { q: <span class="string">'MICS'</span> }, <span class="keyword">function</span>(data) {
+    console.<span class="function">log</span>(data.results);
+    <span class="comment">// Afficher les résultats</span>
+    data.results.<span class="function">forEach</span>(<span class="keyword">function</span>(result) {
+        console.<span class="function">log</span>(result.title);
+    });
+});
+                </div>
+
+                <h3>Exemple 4 : JavaScript moderne (Fetch API)</h3>
+                <div class="code-block">
+<span class="comment">// Recherche avec fetch</span>
+<span class="keyword">async function</span> <span class="function">searchDatasets</span>(query) {
+    <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(`/search?q=${query}`);
+    <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="function">json</span>();
+    
+    <span class="keyword">return</span> data.results;
+}
+
+<span class="comment">// Utilisation</span>
+<span class="function">searchDatasets</span>(<span class="string">'Afrobarometer'</span>)
+    .<span class="function">then</span>(results => {
+        console.<span class="function">log</span>(<span class="string">`Trouvé ${results.length} résultat(s)`</span>);
+    });
+                </div>
+
+                <h3>Exemple 5 : Python (requests)</h3>
+                <div class="code-block">
+<span class="keyword">import</span> requests
+
+<span class="comment"># Rechercher dans le catalogue</span>
+response = requests.<span class="function">get</span>(
+    <span class="string">'http://localhost:5001/search'</span>,
+    params={<span class="string">'q'</span>: <span class="string">'MICS'</span>}
+)
+
+data = response.<span class="function">json</span>()
+results = data[<span class="string">'results'</span>]
+
+<span class="keyword">for</span> dataset <span class="keyword">in</span> results:
+    <span class="function">print</span>(<span class="string">f"Titre: {dataset['title']}"</span>)
+                </div>
+            </div>
+
+            <!-- SECTION 7: FONCTIONNEMENT BACKEND -->
+            <div class="section" id="fonctionnement">
+                <h2>⚙️ 7. Comment ça fonctionne (Backend)</h2>
+
+                <h3>Code de la fonction search() dans app.py</h3>
+                <div class="code-block">
+<span class="keyword">@app.route</span>(<span class="string">'/search'</span>)
+<span class="keyword">def</span> <span class="function">search</span>():
+    <span class="string">"""Recherche dans les datasets"""</span>
+    <span class="comment"># 1. Récupérer le paramètre 'q' de l'URL</span>
+    query = request.args.<span class="function">get</span>(<span class="string">'q'</span>, <span class="string">''</span>).<span class="function">lower</span>()
+    
+    <span class="comment"># 2. Si pas de query, retourner vide</span>
+    <span class="keyword">if not</span> query:
+        <span class="keyword">return</span> <span class="function">jsonify</span>({<span class="string">'results'</span>: []})
+    
+    results = []
+    
+    <span class="comment"># 3. Parcourir tous les datasets</span>
+    <span class="keyword">for</span> dataset_id, dataset <span class="keyword">in</span> DATASETS.<span class="function">items</span>():
+        metadata = dataset[<span class="string">'metadata'</span>]
+        
+        <span class="comment"># 4. Construire le texte de recherche</span>
+        <span class="comment">#    (titre + abstract + mots-clés)</span>
+        searchable = <span class="string">f"{metadata['title']} {metadata['abstract']} "</span>
+        searchable += <span class="string">' '</span>.<span class="function">join</span>(metadata[<span class="string">'keywords'</span>])
+        searchable = searchable.<span class="function">lower</span>()
+        
+        <span class="comment"># 5. Vérifier si le terme est présent</span>
+        <span class="keyword">if</span> query <span class="keyword">in</span> searchable:
+            <span class="comment"># 6. Tronquer l'abstract à 200 caractères</span>
+            abstract = metadata[<span class="string">'abstract'</span>]
+            <span class="keyword">if</span> <span class="function">len</span>(abstract) > <span class="number">200</span>:
+                abstract = abstract[:<span class="number">200</span>] + <span class="string">'...'</span>
+            
+            <span class="comment"># 7. Ajouter aux résultats</span>
+            results.<span class="function">append</span>({
+                <span class="string">'id'</span>: dataset_id,
+                <span class="string">'title'</span>: metadata[<span class="string">'title'</span>],
+                <span class="string">'abstract'</span>: abstract
+            })
+    
+    <span class="comment"># 8. Retourner les résultats en JSON</span>
+    <span class="keyword">return</span> <span class="function">jsonify</span>({<span class="string">'results'</span>: results})
+                </div>
+
+                <h3>Étapes détaillées du fonctionnement</h3>
+                <ol class="step-by-step">
+                    <li>
+                        <strong>Réception de la requête</strong>
+                        <p>Flask reçoit la requête HTTP GET sur <code>/search</code></p>
+                    </li>
+                    <li>
+                        <strong>Extraction du paramètre</strong>
+                        <p><code>request.args.get('q', '')</code> récupère le terme de recherche de l'URL</p>
+                    </li>
+                    <li>
+                        <strong>Normalisation</strong>
+                        <p>Le terme est converti en minuscules avec <code>.lower()</code> pour une recherche insensible à la casse</p>
+                    </li>
+                    <li>
+                        <strong>Vérification</strong>
+                        <p>Si le paramètre est vide, retourne immédiatement un tableau vide</p>
+                    </li>
+                    <li>
+                        <strong>Parcours des datasets</strong>
+                        <p>Boucle sur tous les datasets chargés dans <code>DATASETS</code></p>
+                    </li>
+                    <li>
+                        <strong>Construction du texte searchable</strong>
+                        <p>Concatène titre + abstract + mots-clés pour créer un texte de recherche</p>
+                    </li>
+                    <li>
+                        <strong>Recherche</strong>
+                        <p>Vérifie si le terme de recherche est présent dans le texte (avec <code>in</code>)</p>
+                    </li>
+                    <li>
+                        <strong>Formatage des résultats</strong>
+                        <p>Pour chaque match, crée un objet avec id, title et abstract tronqué</p>
+                    </li>
+                    <li>
+                        <strong>Sérialisation JSON</strong>
+                        <p><code>jsonify()</code> convertit le dictionnaire Python en JSON</p>
+                    </li>
+                    <li>
+                        <strong>Envoi de la réponse</strong>
+                        <p>Flask envoie le JSON au client avec le header <code>Content-Type: application/json</code></p>
+                    </li>
+                </ol>
+
+                <div class="info-box">
+                    <h4>🔍 Type de recherche</h4>
+                    <p>
+                        La recherche actuelle est simple : elle cherche si le terme est <strong>contenu</strong> 
+                        dans le texte (recherche par substring). Par exemple, chercher "MICS" trouvera aussi 
+                        "MICS Bénin" ou "enquête MICS".
+                    </p>
+                </div>
+            </div>
+
+            <!-- SECTION 8: FRONTEND -->
+            <div class="section" id="frontend">
+                <h2>🎨 8. Utilisation côté Frontend</h2>
+
+                <h3>Code JavaScript dans index.html</h3>
+                <div class="code-block">
+$(<span class="keyword">document</span>).<span class="function">ready</span>(<span class="keyword">function</span>() {
+    <span class="comment">// Variable pour le délai de recherche</span>
+    <span class="keyword">let</span> searchTimeout;
+    
+    <span class="comment">// Écouter les changements dans le champ de recherche</span>
+    $(<span class="string">'#search-input'</span>).<span class="function">on</span>(<span class="string">'input'</span>, <span class="keyword">function</span>() {
+        <span class="comment">// Annuler la recherche précédente</span>
+        <span class="function">clearTimeout</span>(searchTimeout);
+        
+        <span class="comment">// Récupérer le terme saisi</span>
+        <span class="keyword">const</span> query = $(<span class="keyword">this</span>).<span class="function">val</span>().<span class="function">trim</span>();
+        
+        <span class="comment">// Si moins de 3 caractères, masquer les résultats</span>
+        <span class="keyword">if</span> (query.length < <span class="number">3</span>) {
+            $(<span class="string">'#search-results'</span>).<span class="function">hide</span>();
+            <span class="keyword">return</span>;
+        }
+        
+        <span class="comment">// Attendre 300ms avant de lancer la recherche</span>
+        <span class="comment">// (pour éviter trop de requêtes pendant la frappe)</span>
+        searchTimeout = <span class="function">setTimeout</span>(<span class="keyword">function</span>() {
+            <span class="comment">// Appel AJAX à l'API</span>
+            $.<span class="function">get</span>(<span class="string">'/search'</span>, { q: query }, <span class="keyword">function</span>(data) {
+                <span class="keyword">if</span> (data.results.length > <span class="number">0</span>) {
+                    <span class="comment">// Construire le HTML des résultats</span>
+                    <span class="keyword">let</span> html = <span class="string">'&lt;div class="results-list"&gt;'</span>;
+                    
+                    data.results.<span class="function">forEach</span>(<span class="keyword">function</span>(result) {
+                        html += <span class="string">`
+                            &lt;div class="result-item"&gt;
+                                &lt;a href="/dataset/${result.id}"&gt;
+                                    &lt;h4&gt;${result.title}&lt;/h4&gt;
+                                    &lt;p&gt;${result.abstract}&lt;/p&gt;
+                                &lt;/a&gt;
+                            &lt;/div&gt;
+                        `</span>;
+                    });
+                    
+                    html += <span class="string">'&lt;/div&gt;'</span>;
+                    
+                    <span class="comment">// Afficher les résultats</span>
+                    $(<span class="string">'#search-results'</span>).<span class="function">html</span>(html).<span class="function">show</span>();
+                } <span class="keyword">else</span> {
+                    <span class="comment">// Aucun résultat</span>
+                    $(<span class="string">'#search-results'</span>)
+                        .<span class="function">html</span>(<span class="string">'&lt;div class="no-results"&gt;Aucun résultat trouvé&lt;/div&gt;'</span>)
+                        .<span class="function">show</span>();
+                }
+            });
+        }, <span class="number">300</span>); <span class="comment">// Délai de 300ms</span>
+    });
+    
+    <span class="comment">// Fermer les résultats en cliquant ailleurs</span>
+    $(<span class="keyword">document</span>).<span class="function">on</span>(<span class="string">'click'</span>, <span class="keyword">function</span>(e) {
+        <span class="keyword">if</span> (!$(e.target).<span class="function">closest</span>(<span class="string">'.search-container'</span>).length) {
+            $(<span class="string">'#search-results'</span>).<span class="function">hide</span>();
+        }
+    });
+});
+                </div>
+
+                <h3>Flux de l'interaction utilisateur</h3>
+                <div class="flow-diagram">
+                    <div class="flow-step">
+                        <h4>1. Utilisateur tape dans la barre de recherche</h4>
+                        <p>L'événement <code>input</code> est déclenché à chaque caractère tapé</p>
+                    </div>
+                    <div class="flow-step">
+                        <h4>2. JavaScript attend 300ms</h4>
+                        <p>Pour éviter d'envoyer une requête à chaque touche, on attend que l'utilisateur finisse de taper</p>
+                    </div>
+                    <div class="flow-step">
+                        <h4>3. Vérification de la longueur (min 3 caractères)</h4>
+                        <p>Si moins de 3 caractères, la recherche ne se lance pas</p>
+                    </div>
+                    <div class="flow-step">
+                        <h4>4. Requête AJAX envoyée à /search</h4>
+                        <p>Le navigateur envoie la requête en arrière-plan (sans recharger la page)</p>
+                    </div>
+                    <div class="flow-step">
+                        <h4>5. Backend traite la recherche</h4>
+                        <p>Flask parcourt les datasets et retourne les résultats en JSON</p>
+                    </div>
+                    <div class="flow-step">
+                        <h4>6. JavaScript reçoit la réponse</h4>
+                        <p>La fonction callback est exécutée avec <code>data</code> contenant les résultats</p>
+                    </div>
+                    <div class="flow-step">
+                        <h4>7. Construction du HTML</h4>
+                        <p>Pour chaque résultat, on crée une carte HTML avec titre et abstract</p>
+                    </div>
+                    <div class="flow-step">
+                        <h4>8. Affichage des résultats</h4>
+                        <p>Les résultats sont insérés dans #search-results et affichés</p>
+                    </div>
+                </div>
+
+                <div class="info-box success">
+                    <h4>✨ Avantages de cette approche</h4>
+                    <ul>
+                        <li><strong>Instantané</strong> : Les résultats apparaissent sans recharger la page</li>
+                        <li><strong>Fluide</strong> : L'utilisateur continue de taper pendant la recherche</li>
+                        <li><strong>Optimisé</strong> : Le délai de 300ms évite trop de requêtes</li>
+                        <li><strong>Ergonomique</strong> : Les résultats se ferment automatiquement</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECTION 9: CAS D'USAGE -->
+            <div class="section" id="cas-usage">
+                <h2>🎯 9. Cas d'usage pratiques</h2>
+
+                <h3>Cas 1 : Recherche interactive sur la page d'accueil</h3>
+                <div class="info-box">
+                    <p><strong>Situation :</strong> L'utilisateur veut trouver rapidement une enquête</p>
+                    <p><strong>Solution :</strong> Barre de recherche avec résultats instantanés via l'API</p>
+                    <p><strong>Avantage :</strong> Expérience utilisateur fluide et rapide</p>
+                </div>
+
+                <h3>Cas 2 : Filtrage dans la page catalogue</h3>
+                <div class="info-box">
+                    <p><strong>Situation :</strong> Sur /catalog, filtrer les datasets affichés</p>
+                    <p><strong>Solution :</strong> Formulaire qui appelle l'API et met à jour la liste</p>
+                    <p><strong>Avantage :</strong> Pas besoin de recharger toute la page</p>
+                </div>
+
+                <h3>Cas 3 : Intégration dans un autre site</h3>
+                <div class="code-block">
+<span class="comment">// Un autre site web peut utiliser votre API</span>
+<span class="keyword">fetch</span>(<span class="string">'http://votre-catalogue.com/search?q=santé'</span>)
+    .<span class="function">then</span>(res => res.<span class="function">json</span>())
+    .<span class="function">then</span>(data => {
+        <span class="comment">// Afficher les datasets sur leur propre site</span>
+        <span class="function">afficherDatasets</span>(data.results);
+    });
+                </div>
+
+                <h3>Cas 4 : Application mobile</h3>
+                <div class="info-box">
+                    <p><strong>Situation :</strong> Créer une app mobile pour consulter le catalogue</p>
+                    <p><strong>Solution :</strong> L'app envoie des requêtes à l'API et affiche les résultats</p>
+                    <p><strong>Avantage :</strong> Même API pour web et mobile</p>
+                </div>
+
+                <h3>Cas 5 : Script d'analyse</h3>
+                <div class="code-block">
+<span class="comment"># Script Python pour analyser le catalogue</span>
+<span class="keyword">import</span> requests
+
+<span class="keyword">def</span> <span class="function">chercher_enquetes_par_theme</span>(theme):
+    response = requests.<span class="function">get</span>(
+        <span class="string">'http://localhost:5001/search'</span>,
+        params={<span class="string">'q'</span>: theme}
+    )
+    <span class="keyword">return</span> response.<span class="function">json</span>()[<span class="string">'results'</span>]
+
+<span class="comment"># Trouver toutes les enquêtes sur la santé</span>
+enquetes_sante = <span class="function">chercher_enquetes_par_theme</span>(<span class="string">'santé'</span>)
+<span class="function">print</span>(<span class="string">f"Trouvé {len(enquetes_sante)} enquête(s) sur la santé"</span>)
+                </div>
+
+                <div class="info-box success">
+                    <h4>💡 Extensibilité</h4>
+                    <p>
+                        Cette API simple peut être étendue avec d'autres endpoints :
+                    </p>
+                    <ul>
+                        <li><code>/api/datasets</code> - Lister tous les datasets</li>
+                        <li><code>/api/dataset/&lt;id&gt;</code> - Obtenir un dataset spécifique</li>
+                        <li><code>/api/statistics</code> - Obtenir des statistiques du catalogue</li>
+                        <li><code>/api/filters</code> - Filtrer par année, producteur, etc.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- BONUS : DÉMO LIVE -->
+            <div class="live-demo" id="demo-live">
+                <h3>🧪 Testez l'API en direct !</h3>
+                <p style="margin-bottom: 20px;">
+                    Si l'application tourne sur http://localhost:5001, vous pouvez tester ici :
+                </p>
+                <input type="text" id="demo-query" placeholder="Entrez un terme de recherche...">
+                <button onclick="testAPI()">🔍 Rechercher</button>
+                <div id="demo-results" style="margin-top: 20px; color: white; text-align: left;"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📡 Documentation API - Catalogue de Données</p>
+            <p style="margin-top: 10px; opacity: 0.8;">
+                API de recherche simple et efficace pour interroger le catalogue
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function testAPI() {
+            const query = document.getElementById('demo-query').value;
+            const resultsDiv = document.getElementById('demo-results');
+            
+            if (!query) {
+                resultsDiv.innerHTML = '<p style="color: #fef3c7;">⚠️ Veuillez entrer un terme de recherche</p>';
+                return;
+            }
+            
+            resultsDiv.innerHTML = '<p>⏳ Recherche en cours...</p>';
+            
+            fetch(`http://localhost:5001/search?q=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.results.length > 0) {
+                        let html = `<p style="font-weight: 600; margin-bottom: 10px;">✅ ${data.results.length} résultat(s) trouvé(s) :</p>`;
+                        html += '<ul style="list-style: none; padding: 0;">';
+                        data.results.forEach(result => {
+                            html += `<li style="margin-bottom: 10px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 6px;">
+                                <strong>${result.title}</strong><br>
+                                <small>${result.abstract}</small>
+                            </li>`;
+                        });
+                        html += '</ul>';
+                        resultsDiv.innerHTML = html;
+                    } else {
+                        resultsDiv.innerHTML = '<p>❌ Aucun résultat trouvé</p>';
+                    }
+                })
+                .catch(error => {
+                    resultsDiv.innerHTML = `<p style="color: #fee2e2;">❌ Erreur : ${error.message}<br><small>Assurez-vous que l'application tourne sur http://localhost:5001</small></p>`;
+                });
+        }
+    </script>
+</body>
+</html>

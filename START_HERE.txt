@@ -1,0 +1,72 @@
+╔════════════════════════════════════════════════════════════════╗
+║                                                                ║
+║    CATALOGUE DE DONNÉES - DÉMARRAGE RAPIDE                  ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+
+ ÉTAPES RAPIDES (Windows)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1.  PLACER VOS FICHIERS XML
+   ────────────────────────────
+   Copiez vos fichiers XML dans le dossier "data/"
+   
+   Exemple :
+   Catalogue_Donnees_Flask/
+   └── data/
+       ├── Afrobarometer_2025_Benin.xml
+       └── MICS_Benin_2021.xml
+
+
+2.  TESTER L'INSTALLATION
+   ────────────────────────
+   Double-cliquez sur : test.bat
+   
+   Cela vérifie que tout est bien installé
+
+
+3.  LANCER L'APPLICATION
+   ─────────────────────────
+   Double-cliquez sur : start.bat
+   
+   Attendez que la fenêtre affiche :
+   "Running on http://127.0.0.1:5001"
+
+
+4.  OUVRIR DANS LE NAVIGATEUR
+   ──────────────────────────────
+   Ouvrez Chrome/Firefox/Edge et allez sur :
+   http://localhost:5001
+   
+   Vous verrez votre catalogue ! 
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ DOCUMENTATION COMPLÈTE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• INSTALLATION_WINDOWS.md       → Guide détaillé Windows
+• README.md                     → Documentation complète
+• GUIDE_RAPIDE.md               → Guide de démarrage
+• APERCU_CATALOGUE.md           → Description du catalogue
+• GUIDE_RESSOURCES_EXTERNES.md  →  Ajouter vos ressources (PDF, données, etc.)
+
+
+ PROBLÈMES COURANTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  "Python n'est pas reconnu..."
+    → Installez Python depuis python.org
+    
+  "Aucun fichier XML trouvé"
+    → Mettez vos fichiers XML dans le dossier data/
+    
+  "Module flask not found"
+    → Ouvrez cmd et tapez : pip install -r requirements.txt
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Bon archivage !
+

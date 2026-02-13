@@ -1,0 +1,444 @@
+{% extends "base.html" %}
+
+{% block title %}{{ dataset.metadata.title }} - Détails{% endblock %}
+
+{% block content %}
+<section class="dataset-detail">
+    <div class="container">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="/">Accueil</a> / 
+            <a href="/catalog">Catalogue</a> / 
+            <span>{{ dataset.metadata.title }}</span>
+        </nav>
+
+        <!-- Dataset Header -->
+        <div class="dataset-detail-header">
+            <div class="header-main">
+                <h1 class="dataset-detail-title">{{ dataset.metadata.title }}</h1>
+                {% if dataset.metadata.alt_title != 'Non spécifié' %}
+                <p class="dataset-subtitle">{{ dataset.metadata.alt_title }}</p>
+                {% endif %}
+                <div class="header-badges">
+                    <span class="badge badge-lg badge-primary">{{ dataset.metadata.nation }}</span>
+                    <span class="badge badge-lg badge-secondary">{{ dataset.metadata.data_kind }}</span>
+                    <span class="badge badge-lg badge-info">ID: {{ dataset.metadata.id }}</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn-action" onclick="window.print()">Imprimer</button>
+                <button class="btn-action" onclick="downloadMetadata()">Télécharger les métadonnées</button>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="quick-stats">
+            <div class="stat-box">
+                <div class="stat-icon"></div>
+                <div class="stat-content">
+                    <div class="stat-value">{{ "{:,}".format(dataset.metadata.case_qty|int).replace(',', ' ') }}</div>
+                    <div class="stat-label">Observations</div>
+                </div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-icon"></div>
+                <div class="stat-content">
+                    <div class="stat-value">{{ dataset.metadata.var_qty }}</div>
+                    <div class="stat-label">Variables</div>
+                </div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-icon"></div>
+                <div class="stat-content">
+                    <div class="stat-value">
+                        {% if dataset.metadata.start_date != 'Non spécifié' %}
+                            {{ dataset.metadata.start_date[:4] }}
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </div>
+                    <div class="stat-label">Année collecte</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li class="tab active" data-tab="overview">Vue d'ensemble</li>
+                <li class="tab" data-tab="methodology">Méthodologie</li>
+                <li class="tab" data-tab="producers">Production & Contact</li>
+                <li class="tab" data-tab="resources">Ressources externes</li>
+                <li class="tab" data-tab="access">Accès aux données</li>
+            </ul>
+        </div>
+
+        <!-- Tab Contents -->
+        <div class="tab-content active" id="overview">
+            <div class="content-section">
+                <h2>Description générale</h2>
+                <div class="content-box">
+                    <p class="text-justify">{{ dataset.metadata.abstract }}</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Couverture géographique et temporelle</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Pays:</strong>
+                        <span>{{ dataset.metadata.nation }}</span>
+                    </div>
+                    {% if dataset.metadata.geog_cover != 'Non spécifié' %}
+                    <div class="info-item">
+                        <strong>Couverture géographique:</strong>
+                        <span>{{ dataset.metadata.geog_cover }}</span>
+                    </div>
+                    {% endif %}
+                    {% if dataset.metadata.geog_unit != 'Non spécifié' %}
+                    <div class="info-item">
+                        <strong>Unité géographique:</strong>
+                        <span>{{ dataset.metadata.geog_unit }}</span>
+                    </div>
+                    {% endif %}
+                    <div class="info-item">
+                        <strong>Date de début:</strong>
+                        <span>{{ dataset.metadata.start_date }}</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Date de fin:</strong>
+                        <span>{{ dataset.metadata.end_date }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Univers et unité d'analyse</h2>
+                <div class="content-box">
+                    <div class="info-item-block">
+                        <strong>Univers:</strong>
+                        <p>{{ dataset.metadata.universe }}</p>
+                    </div>
+                    {% if dataset.metadata.anly_unit != 'Non spécifié' %}
+                    <div class="info-item-block">
+                        <strong>Unité d'analyse:</strong>
+                        <p>{{ dataset.metadata.anly_unit }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if dataset.metadata.keywords %}
+            <div class="content-section">
+                <h2>Mots-clés</h2>
+                <div class="keywords-container">
+                    {% for keyword in dataset.metadata.keywords %}
+                        <span class="keyword-tag-large">{{ keyword }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="tab-content" id="methodology">
+            <div class="content-section">
+                <h2>Plan d'échantillonnage</h2>
+                <div class="content-box">
+                    <p class="text-justify">{{ dataset.metadata.samp_proc }}</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Mode de collecte</h2>
+                <div class="content-box">
+                    <p><strong>{{ dataset.metadata.coll_mode }}</strong></p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Taille de l'échantillon</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Nombre d'observations:</strong>
+                        <span>{{ "{:,}".format(dataset.metadata.case_qty|int).replace(',', ' ') }}</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Nombre de variables:</strong>
+                        <span>{{ dataset.metadata.var_qty }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="producers">
+            {% if dataset.metadata.producers or dataset.metadata.authors %}
+            <div class="content-section">
+                <h2>Producteurs de données</h2>
+                <div class="content-box">
+                    <ul class="entity-list">
+                        {% for producer in dataset.metadata.producers %}
+                        <li>{{ producer }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if dataset.metadata.authors %}
+            <div class="content-section">
+                <h2>Auteurs / Responsables</h2>
+                <div class="content-box">
+                    <ul class="entity-list">
+                        {% for author in dataset.metadata.authors %}
+                        <li>{{ author }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if dataset.metadata.funders %}
+            <div class="content-section">
+                <h2>Financeurs</h2>
+                <div class="content-box">
+                    <ul class="entity-list">
+                        {% for funder in dataset.metadata.funders %}
+                        <li>{{ funder }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="content-section">
+                <h2>Contact</h2>
+                <div class="content-box">
+                    {% if dataset.metadata.contact_affiliation != 'Non spécifié' %}
+                    <p><strong>Organisation:</strong> {{ dataset.metadata.contact_affiliation }}</p>
+                    {% endif %}
+                    {% if dataset.metadata.contact_email != 'Non spécifié' %}
+                    <p><strong>Email:</strong> <a href="mailto:{{ dataset.metadata.contact_email }}">{{ dataset.metadata.contact_email }}</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="resources">
+            {% if external_resources %}
+
+            {% if external_resources.get('data_files') %}
+            <div class="content-section">
+                <h2>Fichiers de données</h2>
+                <div class="resources-grid">
+                    {% for file in external_resources['data_files'] %}
+                    <div class="resource-card">
+                        <div class="resource-header">
+                            <span class="resource-icon">{{ file.icon }}</span>
+                            <h3>{{ file.name }}</h3>
+                        </div>
+                        <p class="resource-description">{{ file.description }}</p>
+                        <div class="resource-meta">
+                            <span class="resource-size">{{ file.size }}</span>
+                            <span class="resource-type">{{ file.type|upper }}</span>
+                        </div>
+                        <a href="{{ file.url }}" class="btn-resource" target="_blank">Télécharger</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if external_resources.get('questionnaires') %}
+            <div class="content-section">
+                <h2>Questionnaires et instruments de collecte</h2>
+                <div class="resources-grid">
+                    {% for questionnaire in external_resources['questionnaires'] %}
+                    <div class="resource-card">
+                        <div class="resource-header">
+                            <span class="resource-icon">{{ questionnaire.icon }}</span>
+                            <h3>{{ questionnaire.name }}</h3>
+                        </div>
+                        <p class="resource-description">{{ questionnaire.description }}</p>
+                        <div class="resource-meta">
+                            <span class="resource-size">{{ questionnaire.size }}</span>
+                            <span class="resource-type">{{ questionnaire.type|upper }}</span>
+                        </div>
+                        <a href="{{ questionnaire.url }}" class="btn-resource" target="_blank">Télécharger</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if external_resources.get('reports') %}
+            <div class="content-section">
+                <h2>Rapports et publications</h2>
+                <div class="resources-grid">
+                    {% for report in external_resources['reports'] %}
+                    <div class="resource-card">
+                        <div class="resource-header">
+                            <span class="resource-icon">{{ report.icon }}</span>
+                            <h3>{{ report.name }}</h3>
+                        </div>
+                        <p class="resource-description">{{ report.description }}</p>
+                        <div class="resource-meta">
+                            <span class="resource-size">{{ report.size }}</span>
+                            <span class="resource-type">{{ report.type|upper }}</span>
+                        </div>
+                        <a href="{{ report.url }}" class="btn-resource" target="_blank">Télécharger</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if external_resources.get('documentation') %}
+            <div class="content-section">
+                <h2>Documentation technique</h2>
+                <div class="resources-grid">
+                    {% for doc in external_resources['documentation'] %}
+                    <div class="resource-card">
+                        <div class="resource-header">
+                            <span class="resource-icon">{{ doc.icon }}</span>
+                            <h3>{{ doc.name }}</h3>
+                        </div>
+                        <p class="resource-description">{{ doc.description }}</p>
+                        <div class="resource-meta">
+                            <span class="resource-size">{{ doc.size }}</span>
+                            <span class="resource-type">{{ doc.type|upper }}</span>
+                        </div>
+                        <a href="{{ doc.url }}" class="btn-resource" target="_blank">Télécharger</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% else %}
+            <div class="content-section">
+                <div class="no-resources">
+                    <p>Aucune ressource externe n'est actuellement disponible pour ce dataset.</p>
+                    <p class="text-muted">Les ressources peuvent inclure : fichiers de données, questionnaires, rapports et documentation technique.</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="tab-content" id="access">
+            <div class="content-section">
+                <h2>Conditions d'utilisation</h2>
+                <div class="content-box access-box">
+                    <p>{{ dataset.metadata.conditions }}</p>
+                </div>
+            </div>
+
+            {% if dataset.metadata.copyright != 'Non spécifié' %}
+            <div class="content-section">
+                <h2>Copyright</h2>
+                <div class="content-box">
+                    <p>{{ dataset.metadata.copyright }}</p>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="content-section">
+                <h2>Demande d'accès aux données</h2>
+                <div class="content-box">
+                    <p>Pour accéder aux microdonnées de cette enquête, veuillez contacter :</p>
+                    {% if dataset.metadata.contact_email != 'Non spécifié' %}
+                    <p class="contact-highlight">
+                        <strong>Email:</strong> <a href="mailto:{{ dataset.metadata.contact_email }}">{{ dataset.metadata.contact_email }}</a>
+                    </p>
+                    {% endif %}
+                    <button class="btn-primary btn-large">Faire une demande d'accès</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function() {
+    $('.tab').click(function() {
+        var tabId = $(this).data('tab');
+        $('.tab').removeClass('active');
+        $('.tab-content').removeClass('active');
+        $(this).addClass('active');
+        $('#' + tabId).addClass('active');
+    });
+});
+
+function downloadMetadata() {
+    var content = [
+        "========================================",
+        "        METADONNEES DU DATASET          ",
+        "========================================",
+        "",
+        "INFORMATIONS GENERALES",
+        "----------------------",
+        "Titre            : {{ dataset.metadata.title | replace('\n', ' ') | replace('\r', '') | trim }}",
+        "Titre alternatif : {{ dataset.metadata.alt_title | replace('\n', ' ') | replace('\r', '') | trim }}",
+        "Identifiant      : {{ dataset.metadata.id | trim }}",
+        "Pays             : {{ dataset.metadata.nation | trim }}",
+        "Type de donnees  : {{ dataset.metadata.data_kind | trim }}",
+        "",
+        "COUVERTURE",
+        "----------",
+        "Couverture geo   : {{ dataset.metadata.geog_cover | replace('\n', ' ') | replace('\r', '') | trim }}",
+        "Unite geo        : {{ dataset.metadata.geog_unit | trim }}",
+        "Date de debut    : {{ dataset.metadata.start_date | trim }}",
+        "Date de fin      : {{ dataset.metadata.end_date | trim }}",
+        "",
+        "ECHANTILLON",
+        "-----------",
+        "Observations     : {{ dataset.metadata.case_qty | trim }}",
+        "Variables        : {{ dataset.metadata.var_qty | trim }}",
+        "Univers          : {{ dataset.metadata.universe | replace('\n', ' ') | replace('\r', '') | trim }}",
+        "Unite d analyse  : {{ dataset.metadata.anly_unit | replace('\n', ' ') | replace('\r', '') | trim }}",
+        "",
+        "METHODOLOGIE",
+        "------------",
+        "Mode de collecte : {{ dataset.metadata.coll_mode | replace('\n', ' ') | replace('\r', '') | trim }}",
+        "Plan echantillon : {{ dataset.metadata.samp_proc | replace('\n', ' ') | replace('\r', '') | trim }}",
+        "",
+        "PRODUCTION",
+        "----------",
+        "Producteurs      : {{ dataset.metadata.producers | join(', ') | replace('\n', ' ') | trim }}",
+        "Auteurs          : {{ dataset.metadata.authors | join(', ') | replace('\n', ' ') | trim }}",
+        "Financeurs       : {{ dataset.metadata.funders | join(', ') | replace('\n', ' ') | trim }}",
+        "Organisation     : {{ dataset.metadata.contact_affiliation | trim }}",
+        "Email contact    : {{ dataset.metadata.contact_email | trim }}",
+        "",
+        "ACCES",
+        "-----",
+        "Conditions       : {{ dataset.metadata.conditions | replace('\n', ' ') | replace('\r', '') | trim }}",
+        "Copyright        : {{ dataset.metadata.copyright | replace('\n', ' ') | replace('\r', '') | trim }}",
+        "",
+        "DESCRIPTION COMPLETE",
+        "--------------------",
+        "{{ dataset.metadata.abstract | replace('\n', ' ') | replace('\r', '') | trim }}",
+        "",
+        "MOTS-CLES",
+        "---------",
+        "{% for keyword in dataset.metadata.keywords %}{{ keyword }}{% if not loop.last %}, {% endif %}{% endfor %}",
+        "",
+        "========================================",
+        "Genere par le Catalogue National de Donnees",
+        "========================================"
+    ].join("\n");
+
+    var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+    var url  = URL.createObjectURL(blob);
+    var a    = document.createElement("a");
+    a.href   = url;
+    a.download = "metadata_{{ dataset.metadata.id | trim }}.txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+</script>
+{% endblock %}

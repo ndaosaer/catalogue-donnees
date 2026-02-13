@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Catalogue de Données{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><a href="/">Catalogue National de Données du Bénin</a></h1>
+                    <p class="tagline">Archivage et Diffusion de Données Statistiques</p>
+                </div>
+                <nav class="nav">
+                    <a href="/" class="nav-link">Accueil</a>
+                    <a href="/catalog" class="nav-link">Catalogue</a>
+                    <a href="/about" class="nav-link">À propos</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>À propos</h3>
+                    <p>Plateforme de catalogage et d'archivage de données statistiques développée avec Nesstar Publisher</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Ressources</h3>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Guide utilisateur</a></li>
+                        <li><a href="#">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: instad@instad.bj</p>
+                    <p>Tél: +229 21 30 82 44</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 - Projet d'Archivage AS3 2025/2026. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

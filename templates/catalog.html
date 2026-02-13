@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}Catalogue - Données Disponibles{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1> Catalogue des Enquêtes</h1>
+        <p>Explorez toutes les enquêtes et études disponibles</p>
+    </div>
+</section>
+
+<section class="catalog-section">
+    <div class="container">
+        <!-- Filtres et recherche -->
+        <div class="filters-bar">
+            <form method="get" class="filters-form">
+                <input type="text" 
+                       name="q" 
+                       value="{{ request.args.get('q', '') }}"
+                       class="filter-input" 
+                       placeholder="Rechercher...">
+                <button type="submit" class="btn-filter">Filtrer</button>
+            </form>
+            <div class="results-count">
+                <strong>{{ datasets|length }}</strong> enquête(s) trouvée(s)
+            </div>
+        </div>
+
+        <!-- Liste des datasets -->
+        <div class="catalog-list">
+            {% for dataset_id, dataset in datasets.items() %}
+            <div class="catalog-item">
+                <div class="catalog-item-header">
+                    <h2 class="catalog-item-title">
+                        <a href="/dataset/{{ dataset_id }}">{{ dataset.metadata.title }}</a>
+                    </h2>
+                    <div class="catalog-item-badges">
+                        <span class="badge badge-primary">{{ dataset.metadata.nation }}</span>
+                        <span class="badge badge-secondary">{{ dataset.metadata.data_kind }}</span>
+                    </div>
+                </div>
+                
+                <div class="catalog-item-body">
+                    <div class="catalog-item-meta">
+                        <div class="meta-row">
+                            <span class="meta-label"> Période:</span>
+                            <span class="meta-value">
+                                {% if dataset.metadata.start_date != 'Non spécifié' %}
+                                    {{ dataset.metadata.start_date }} - {{ dataset.metadata.end_date }}
+                                {% else %}
+                                    Non spécifié
+                                {% endif %}
+                            </span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label"> Producteur(s):</span>
+                            <span class="meta-value">
+                                {% if dataset.metadata.producers %}
+                                    {{ dataset.metadata.producers|join(', ') }}
+                                {% else %}
+                                    Non spécifié
+                                {% endif %}
+                            </span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label"> Échantillon:</span>
+                            <span class="meta-value">{{ "{:,}".format(dataset.metadata.case_qty|int).replace(',', ' ') }} observations</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label"> Variables:</span>
+                            <span class="meta-value">{{ dataset.metadata.var_qty }} variables</span>
+                        </div>
+                    </div>
+                    
+                    <p class="catalog-item-abstract">
+                        {{ dataset.metadata.abstract[:300] }}{% if dataset.metadata.abstract|length > 300 %}...{% endif %}
+                    </p>
+                    
+                    {% if dataset.metadata.keywords %}
+                    <div class="catalog-item-keywords">
+                        <strong> Mots-clés:</strong>
+                        {% for keyword in dataset.metadata.keywords[:5] %}
+                            <span class="keyword-tag">{{ keyword }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="catalog-item-footer">
+                    <a href="/dataset/{{ dataset_id }}" class="btn-primary">Voir les détails complets →</a>
+                    <span class="item-id">ID: {{ dataset.metadata.id }}</span>
+                </div>
+                
+                <!-- Ressources externes -->
+                {% if external_resources.get(dataset_id) %}
+                <div class="external-resources-preview">
+                    <h4> Ressources disponibles</h4>
+                    <div class="resources-badges">
+                        {% if external_resources[dataset_id].get('data_files') %}
+                        <span class="resource-badge">
+                             {{ external_resources[dataset_id]['data_files']|length }} fichier(s) de données
+                        </span>
+                        {% endif %}
+                        {% if external_resources[dataset_id].get('questionnaires') %}
+                        <span class="resource-badge">
+                             {{ external_resources[dataset_id]['questionnaires']|length }} questionnaire(s)
+                        </span>
+                        {% endif %}
+                        {% if external_resources[dataset_id].get('reports') %}
+                        <span class="resource-badge">
+                             {{ external_resources[dataset_id]['reports']|length }} rapport(s)
+                        </span>
+                        {% endif %}
+                        {% if external_resources[dataset_id].get('documentation') %}
+                        <span class="resource-badge">
+                             {{ external_resources[dataset_id]['documentation']|length }} document(s) technique(s)
+                        </span>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        
+        {% if datasets|length == 0 %}
+        <div class="no-data">
+            <p>Aucune enquête trouvée pour votre recherche.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

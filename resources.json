@@ -1,0 +1,238 @@
+{
+  "BEN-Afrobarometer-EOP-2025-001": {
+    "data_files": [
+      {
+        "name": "Données SPSS",
+        "description": "Fichier de microdonnées au format SPSS (.sav)",
+        "type": "spss",
+        "icon": "",
+        "url": "https://www.afrobarometer.org/survey-resource/benin-round-10-data-2024/",
+        "size": "2.5 MB"
+      },
+      {
+        "name": "Données Stata",
+        "description": "Fichier de microdonnées au format Stata (.dta)",
+        "type": "stata",
+        "icon": "",
+        "url": "https://www.afrobarometer.org/survey-resource/benin-round-10-data-2024/",
+        "size": "2.3 MB"
+      },
+      {
+        "name": "Données CSV",
+        "description": "Fichier de microdonnées au format CSV (délimité par virgules)",
+        "type": "csv",
+        "icon": "",
+        "url": "https://www.afrobarometer.org/survey-resource/benin-round-10-data-2024/",
+        "size": "3.1 MB"
+      }
+    ],
+    "questionnaires": [
+      {
+        "name": "Questionnaire principal",
+        "description": "Questionnaire individuel en français (Round 10)",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://www.afrobarometer.org/survey-resource/benin-round-10-questionnaire-2024-2/",
+        "size": "850 KB"
+      },
+      {
+        "name": "Guide de l'enquêteur",
+        "description": "Manuel de formation des enquêteurs",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://www.afrobarometer.org/surveys-and-methods/survey-manuals/?select-survey-rounds%5B%5D=survey-round-10&hidden-current-page=1",
+        "size": "1.2 MB"
+      }
+    ],
+    "reports": [
+      {
+        "name": "Rapport national - Bénin",
+        "description": "Résultats de l'enquête Afrobarometer Round 10 au Bénin",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://www.afrobarometer.org/publications/?select-countries%5B%5D=benin&select-survey-rounds%5B%5D=survey-round-10&hidden-current-page=1",
+        "size": "2.8 MB"
+      },
+      {
+        "name": "Policy Brief - Démocratie",
+        "description": "Note de synthèse sur les perceptions démocratiques",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://www.afrobarometer.org/topics/democracy-freedom-citizen-engagement/",
+        "size": "450 KB"
+      }
+    ],
+    "documentation": [
+      {
+        "name": "Rapport d'information technique (TIR)",
+        "description": "Documentation méthodologique complète de l'enquête",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://www.afrobarometer.org/surveys-and-methods/survey-manuals/?select-survey-rounds%5B%5D=survey-round-10&hidden-current-page=1",
+        "size": "1.5 MB"
+      },
+      {
+        "name": "Codebook",
+        "description": "Guide des variables et codes de l'enquête",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://www.afrobarometer.org/data/codebooks/?select-countries%5B%5D=benin&select-survey-rounds%5B%5D=survey-round-10&hidden-current-page=1",
+        "size": "950 KB"
+      },
+      {
+        "name": "Protocole de pondération",
+        "description": "Guide d'utilisation des poids d'échantillonnage",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://www.afrobarometer.org/wp-content/uploads/2022/04/Afrobarometer_Weights_Protocol.pdf",
+        "size": "320 KB"
+      }
+    ]
+  },
+  "DDI-BEN-INS-MICS-2014-V2.0": {
+    "data_files": [
+      {
+        "name": "Données SPSS - Ménages",
+        "description": "Base de données des ménages au format SPSS",
+        "type": "spss",
+        "icon": "",
+        "url": "https://mics.unicef.org/surveys?display=card&f[0]=region:3801&f[1]=datatype:0",
+        "size": "8.5 MB"
+      },
+      {
+        "name": "Données SPSS - Femmes",
+        "description": "Base de données des femmes (15-49 ans) au format SPSS",
+        "type": "spss",
+        "icon": "",
+        "url": "https://mics.unicef.org/surveys?display=card&f[0]=region:3801&f[1]=datatype:0",
+        "size": "12.3 MB"
+      },
+      {
+        "name": "Données SPSS - Enfants",
+        "description": "Base de données des enfants de moins de 5 ans au format SPSS",
+        "type": "spss",
+        "icon": "",
+        "url": "https://mics.unicef.org/surveys?display=card&f[0]=region:3801&f[1]=datatype:0",
+        "size": "6.8 MB"
+      },
+      {
+        "name": "Données CSV - Ensemble",
+        "description": "Toutes les bases de données en CSV (archive ZIP)",
+        "type": "zip",
+        "icon": "",
+        "url": "https://mics.unicef.org/surveys?display=card&f[0]=region:3801&f[1]=datatype:0",
+        "size": "25 MB"
+      }
+    ],
+    "questionnaires": [
+      {
+        "name": "Questionnaire Ménage",
+        "description": "Questionnaire de collecte des données ménages",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://mics.ipums.org/mics/resources/enum_materials_pdf/survey_form_bj2021a_hh.pdf",
+        "size": "1.8 MB"
+      },
+      {
+        "name": "Questionnaire Femme",
+        "description": "Questionnaire individuel femmes (15-49 ans)",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://mics.ipums.org/mics/resources/enum_materials_pdf/survey_form_bj2021a_wm.pdf",
+        "size": "2.1 MB"
+      },
+      {
+        "name": "Questionnaire Enfant (-5 ans)",
+        "description": "Questionnaire pour enfants de moins de 5 ans",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://mics.ipums.org/mics/resources/enum_materials_pdf/survey_form_bj2021a_ch.pdf",
+        "size": "1.5 MB"
+      },
+      {
+        "name": "Questionnaire Enfant (5-17 ans)",
+        "description": "Questionnaire pour enfants de 5 à 17 ans",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://mics.ipums.org/mics/resources/enum_materials_pdf/survey_form_bj2021a_fs.pdf",
+        "size": "1.3 MB"
+      },
+      {
+        "name": "Manuel de l'enquêteur MICS6",
+        "description": "Guide de formation et de collecte MICS6",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://mics.unicef.org/tools",
+        "size": "3.2 MB"
+      }
+    ],
+    "reports": [
+      {
+        "name": "Rapport principal MICS Bénin 2021-2022",
+        "description": "Rapport final avec tous les indicateurs clés",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://instad.bj/actualites/530-rapport-de-l-analyse-de-l-enquete-mics-benin-2021-2022",
+        "size": "15.5 MB"
+      },
+      {
+        "name": "Rapport thématique - Santé",
+        "description": "Analyse approfondie des indicateurs de santé",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://www.insae-bj.org",
+        "size": "4.2 MB"
+      },
+      {
+        "name": "Rapport thématique - Éducation",
+        "description": "Analyse des indicateurs d'éducation et d'alphabétisation",
+        "type": "pdf",
+        "icon": "🎓",
+        "url": "https://www.insae-bj.org",
+        "size": "3.8 MB"
+      },
+      {
+        "name": "Note de synthèse - ODD",
+        "description": "Contribution aux Objectifs de Développement Durable",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://instad.bj/actualites/526-note-synthese-sur-la-pauvrete-en-2022",
+        "size": "1.8 MB"
+      }
+    ],
+    "documentation": [
+      {
+        "name": "Rapport technique d'échantillonnage",
+        "description": "Description détaillée du plan de sondage",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://mics.unicef.org/tools",
+        "size": "2.5 MB"
+      },
+      {
+        "name": "Guide de traitement des données",
+        "description": "Procédures de nettoyage et de contrôle qualité",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://mics.unicef.org/tools",
+        "size": "1.9 MB"
+      },
+      {
+        "name": "Manuel MICS6 - Indicateurs",
+        "description": "Définitions et calculs des indicateurs MICS",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://mics.unicef.org/tools",
+        "size": "5.5 MB"
+      },
+      {
+        "name": "Dictionnaire de données",
+        "description": "Liste complète des variables avec descriptions",
+        "type": "pdf",
+        "icon": "",
+        "url": "https://fr.scribd.com/document/540921754/MICS-Guidebook-FR-v4",
+        "size": "3.2 MB"
+      }
+    ]
+  }
+}

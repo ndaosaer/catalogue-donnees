@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<codeBook version="1.2.2" ID="BEN-2004-2016-ES-P-v01-M" xml-lang="fr" xmlns="http://www.icpsr.umich.edu/DDI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd">
+  <docDscr>
+    <citation>
+      <titlStmt>
+        <titl>
+          Enquête auprès des entreprise du Bénin en 2016
+        </titl>
+        <IDNo>
+          DDI-BEN-2016-ES-v01-M-WB
+        </IDNo>
+      </titlStmt>
+      <prodStmt>
+        <producer abbr="ENSAE" affiliation="ANSD">
+          Ecole nationale de la Statistique et de l'Analyse éconmique
+        </producer>
+        <prodDate date="2026-01-29">
+          2026-01-29
+        </prodDate>
+        <software version="4.0.10" date="2018-05-02">
+          Nesstar Publisher
+        </software>
+      </prodStmt>
+      <verStmt>
+        <version>
+          v01 (janvier2026)
+        </version>
+      </verStmt>
+    </citation>
+  </docDscr>
+  <stdyDscr>
+    <citation>
+      <titlStmt>
+        <titl>
+          Enquête auprès des entreprises 2016
+        </titl>
+        <subTitl>
+          Enquête sur l'environnement des affaires et les performances des entreprises
+        </subTitl>
+        <altTitl>
+          BEN_2016_ES_v01_M
+        </altTitl>
+        <parTitl>
+          Entreprise survey
+        </parTitl>
+        <IDNo>
+          BEN-2004-2016-ES-P-v01-M
+        </IDNo>
+      </titlStmt>
+      <rspStmt>
+        <AuthEnty affiliation="Organisation des Nations Unies">
+          Banque mondiale
+        </AuthEnty>
+        <othId>
+          <p>
+            Avis de TNS
+          </p>
+        </othId>
+      </rspStmt>
+      <prodStmt>
+        <copyright>
+          © The World Bank Group
+        </copyright>
+        <software version="4.0.10" date="2018-05-02">
+          Nesstar Publisher
+        </software>
+        <fundAg abbr="IFC">
+          Fonds néerlandais pour une croissance saine
+        </fundAg>
+        <fundAg abbr="BM">
+          Banque Mondiale
+        </fundAg>
+      </prodStmt>
+      <distStmt>
+        <contact affiliation="Banque mondiale" email="enquêtesentreprises@banquemondiale.org">
+          Unité d'analyse d'entreprise
+        </contact>
+      </distStmt>
+      <serStmt>
+        <serName>
+          Enquête Socio-Economique / Monitoring [hh/sems]
+        </serName>
+        <serInfo>
+          <![CDATA[Dans le cadre de son objectif stratégique visant à instaurer un climat propice à l'investissement, à la création d'emplois et à une croissance durable, la Banque mondiale a promu l'amélioration de l'environnement des affaires comme stratégie clé pour le développement, ce qui a conduit à un effort systématique de collecte de données sur les entreprises dans différents pays. Les enquêtes auprès des entreprises constituent un projet permanent de la Banque mondiale visant à recueillir des données objectives fondées sur l'expérience des entreprises et sur leur perception de l'environnement dans lequel elles évoluent.
+
+Une enquête auprès des entreprises est une enquête menée auprès d'un échantillon représentatif d'entreprises du secteur privé d'une économie. Ces enquêtes sont réalisées depuis 1998 par différentes unités de la Banque mondiale. Depuis 2005-2006, la collecte de données est principalement centralisée au sein de l'Unité d'analyse des entreprises. Les enquêtes auprès des entreprises sont menées dans toutes les régions géographiques et couvrent les petites, moyennes et grandes entreprises. Elles sont administrées à un échantillon représentatif d'entreprises du secteur privé formel non agricole. Les données recueillies servent à élaborer des indicateurs permettant de comparer la qualité du climat des affaires et d'investissement entre les pays.]]>
+        </serInfo>
+      </serStmt>
+      <verStmt>
+        <version date="2017-05-03">
+          v01, version éditée, jeu de données anonymisé destiné à la distribution publique
+        </version>
+        <notes>
+          <![CDATA[Le champ d'application de l'étude comprend :
+caractéristiques de l'établissement ;
+infrastructures et services ;
+ventes et fournitures;
+degré de concurrence ;
+capacité;
+terrains et permis;
+innovation;
+crime;
+finance;
+relations entre les entreprises et le gouvernement;
+travail;
+environnement des affaires;
+performance.]]>
+        </notes>
+      </verStmt>
+    </citation>
+    <stdyInfo>
+      <subject>
+        <keyword>
+          Entreprises
+        </keyword>
+        <keyword>
+          Climat des affaires
+        </keyword>
+        <keyword>
+          secteur privé
+        </keyword>
+        <keyword>
+          investissement
+        </keyword>
+        <keyword>
+          obstacles à la croissance
+        </keyword>
+        <keyword>
+          gouvernance d'entreprises
+        </keyword>
+        <keyword>
+          Bénin
+        </keyword>
+        <topcClas>
+          Développement du secteur privé
+        </topcClas>
+        <topcClas>
+          Climat d'investissement
+        </topcClas>
+        <topcClas>
+          Gouvernance d'entreprise
+        </topcClas>
+      </subject>
+      <abstract>
+        <![CDATA[L'enquête a été menée au Bénin entre juillet et octobre 2016 dans le cadre du projet « Enquêtes auprès des entreprises », une initiative de la Banque mondiale. Son objectif est de recueillir l'avis des entreprises sur l'état du secteur privé et de contribuer à la constitution d'un panel de données permettant de suivre l'évolution de l'environnement des affaires et, par exemple, d'évaluer l'impact des réformes. Au moyen d'entretiens avec des entreprises des secteurs manufacturier et des services, l'enquête évalue les freins à la croissance du secteur privé et crée des indicateurs de l'environnement des affaires statistiquement significatifs et comparables entre les pays. Seules les entreprises enregistrées participent à l'enquête.
+Les données de 150 établissements ont été analysées. Un échantillonnage aléatoire stratifié a été utilisé pour sélectionner les entreprises interrogées. Les données ont été recueillies au moyen d'entretiens en face à face.
+Les thèmes standard de l'enquête portent sur les caractéristiques de l'entreprise, la parité hommes-femmes, l'accès au financement, le chiffre d'affaires annuel, les coûts des intrants et de la main-d'œuvre, la composition de la main-d'œuvre, la corruption, les licences, les infrastructures, le commerce, la criminalité, la concurrence, le taux d'utilisation des capacités, le foncier et les permis, la fiscalité, l'informalité, les relations entreprises-gouvernement, l'innovation et la technologie, ainsi que les indicateurs de performance. Plus de 90 % des questions visent à déterminer objectivement les caractéristiques de l'environnement des affaires d'un pays. Les questions restantes évaluent l'opinion des répondants quant aux obstacles à la croissance et à la performance des entreprises.]]>
+      </abstract>
+      <sumDscr>
+        <collDate date="2016-07-01" event="start" cycle="3 mois"/>
+        <collDate date="2016-10-23" event="end" cycle="3 mois"/>
+        <nation abbr="BEN">
+          Bénin
+        </nation>
+        <geogCover>
+          National
+        </geogCover>
+        <geogUnit>
+          Les régions couvertes sont sélectionnées en fonction du nombre d'établissements, de leur contribution à l'emploi et de la valeur ajoutée. Dans la plupart des cas, il s'agit de zones métropolitaines qui représentent les principaux pôles d'activité économique du pays.
+        </geogUnit>
+        <anlyUnit>
+          L'unité primaire d'échantillonnage de cette étude est l'établissement. Un établissement est un lieu physique où s'exercent des activités commerciales, industrielles ou de services. Une entreprise peut être composée d'un ou plusieurs établissements. Par exemple, une brasserie peut posséder plusieurs usines d'embouteillage et plusieurs points de distribution. Aux fins de cette enquête, un établissement doit prendre ses propres décisions financières et disposer de ses propres états financiers, distincts de ceux de l'entreprise. Un établissement doit également avoir sa propre direction et exercer un contrôle sur sa paie.
+        </anlyUnit>
+        <universe>
+          L'ensemble de la population, ou univers, couvert par les enquêtes auprès des entreprises correspond à l'économie privée non agricole. Elle comprend : tous les secteurs manufacturiers selon la classification par groupes de la CITI Révision 3.1 (groupe D), le secteur de la construction (groupe F), le secteur des services (groupes G et H) et le secteur des transports, de l'entreposage et des communications (groupe I). Cette définition exclut les secteurs suivants : l'intermédiation financière (groupe J), ??l'immobilier et la location (groupe K, à l'exception du sous-secteur 72, les technologies de l'information, qui a été intégré à la population étudiée) et tous les secteurs publics ou de services d'utilité publique. Les entreprises détenues à 100 % par l'État ne sont pas admissibles aux enquêtes auprès des entreprises.
+        </universe>
+        <dataKind>
+          Données échantillonées [ssd]
+        </dataKind>
+      </sumDscr>
+      <notes>
+        <![CDATA[Caractéristiques des entreprises 
+Participation des femmes (genre)
+Accès au financement Ventes annuelles
+Coûts des intrants et du travail
+Composition de la main-d'œuvre
+Corruption et pots-de-vin
+Licences et permis
+Infrastructure (électricité, transport, télécommunications)
+Commerce international 
+Criminalité et sécurité 
+Concurrence 
+Utilisation des capacités 
+Foncier et permis 
+Taxation et informalité
+Relations gouvernement-entreprises
+Innovation et technologie 
+Mesures de performance]]>
+      </notes>
+    </stdyInfo>
+    <method>
+      <dataColl>
+        <dataCollector>
+          Recherche sur la valeur ajoutée
+        </dataCollector>
+        <sampProc>
+          <![CDATA[Trois niveaux de stratification ont été utilisés dans ce pays : secteur d’activité, taille de l’établissement et région.
+
+La stratification industrielle a été conçue comme suit : l'univers a été stratifié en industries manufacturières et de services - Fabrication (codes ISIC Rév. 3.1 15 - 37) et Services (codes ISIC 45, 50-52, 55, 60-64 et 72).
+
+Pour l’ES du Bénin, la stratification de la taille a été définie comme suit : petite (5 à 19 employés), moyenne (20 à 99 employés) et grande (100 employés ou plus).
+
+La stratification régionale a été réalisée dans cinq régions : Atlantique, Borgou, Mono, Ouémé et Littoral.
+
+Le cadre d’échantillonnage était constitué de listes d’entreprises provenant de trois sources : pour les entreprises du panel, la liste de 150 entreprises de l’ES du Bénin de 2009 a été utilisée et pour les nouvelles entreprises (c’est-à-dire les entreprises non couvertes en 2009), les listes obtenues de l’Institut national de la statistique et de la Direction des impôts (2013) et de la Chambre de commerce (2016) ont été utilisées.
+
+Compte tenu de l'incidence que les unités non admissibles incluses dans l'échantillon peuvent avoir sur les résultats, des ajustements peuvent s'avérer nécessaires lors du calcul des pondérations appropriées pour chaque observation. Le pourcentage d'unités non admissibles confirmées, par rapport au nombre total d'établissements contactés pour l'enquête, était de 3,8 % (13 établissements sur 342).]]>
+        </sampProc>
+        <collMode>
+          Interview face à face [f2f]
+        </collMode>
+        <resInstru>
+          <![CDATA[Les instruments d'enquête suivants sont disponibles :
+
+Questionnaire du module de fabrication
+Questionnaire du module Services
+Les questionnaires comportent des questions communes (module de base) et, respectueusement, des questions supplémentaires spécifiques à la fabrication et aux services.
+
+Les industries manufacturières admissibles ont été interrogées à l'aide du questionnaire sur la fabrication (comprenant le module de base et des questions spécifiques à la fabrication). Les entreprises de vente au détail ont été interrogées à l'aide du questionnaire sur les services (comprenant le module de base et des questions spécifiques à la vente au détail), et les autres services admissibles ont été couverts par le questionnaire sur les services (comprenant le module de base). Chaque variante du questionnaire est identifiée par la variable d'indice a0.
+
+L'enquête est menée au moyen de questionnaires destinés aux entreprises manufacturières ou de services afin d'éviter les questions non pertinentes pour certains types d'entreprises. Par exemple, une question relative aux employés de production et aux employés hors production ne devrait pas être posée à une entreprise de vente au détail. Outre les questions communes à tous les pays, chaque enquête est personnalisée et comprend des questions spécifiques à chaque pays. À titre d'exemple, des questions relatives au tourisme peuvent être posées dans certains pays où le tourisme constitue un secteur de croissance économique existant ou potentiel.]]>
+        </resInstru>
+        <sources/>
+        <collSitu>
+          <![CDATA[Des entreprises privées réalisent les enquêtes auprès des entreprises pour le compte de la Banque mondiale. Compte tenu de la nature sensible des questions posées, qui portent sur les relations entre les entreprises et le gouvernement et sur des sujets liés à la corruption, ces entreprises privées sont privilégiées par rapport à tout organisme gouvernemental ou institution associée au gouvernement et sont mandatées par la Banque mondiale pour collecter les données.
+
+Les enquêtes auprès des entreprises se déroulent généralement en deux étapes. Dans un premier temps, un questionnaire de présélection est administré par téléphone afin de déterminer l'admissibilité et de fixer un rendez-vous. Dans un second temps, un entretien en face à face est mené avec le gérant, le propriétaire ou le directeur de chaque établissement. Dans certains cas, lorsque les numéros de téléphone étaient indisponibles dans la base de sondage, les enquêteurs ont administré le questionnaire de présélection en personne.
+
+TNS Opinion était l'entrepreneur principal et Plus Value Research était le sous-traitant qui a mis en œuvre l'ES Bénin 2016.]]>
+        </collSitu>
+        <weight>
+          <![CDATA[Pour certaines unités, l'éligibilité n'a pu être déterminée, le contact n'ayant pas abouti. Par conséquent, différentes hypothèses quant à leur éligibilité entraînent des ajustements différents des cellules de l'univers et des pondérations d'échantillonnage différentes. Trois ensembles d'hypothèses ont été envisagés :
+
+a- Hypothèse stricte : seuls les établissements pour lesquels il a été possible de déterminer directement l’éligibilité sont éligibles.
+
+b- Hypothèse de médiane : les établissements admissibles sont ceux pour lesquels l’admissibilité a pu être déterminée directement, ainsi que ceux qui ont rejeté le questionnaire de présélection ou pour lesquels la seule réponse reçue était un répondeur automatique ou un fax. Les pondérations médianes sont utilisées pour le calcul des indicateurs sur le site web www.enterprisesurveys.org .
+
+c- Hypothèse faible : outre les établissements mentionnés aux points a et b, tous les établissements pour lesquels il a été impossible de finaliser un contact sont considérés comme éligibles. Cela inclut les établissements dont la ligne téléphonique est hors service ou injoignable, ceux qui n’ont jamais répondu au téléphone et ceux dont l’adresse est erronée et pour lesquels il a été impossible de trouver une nouvelle adresse. Il est à noter que, dans le cadre de cette hypothèse faible, seules les unités non éligibles observées sont exclues des projections de l’univers.]]>
+        </weight>
+        <cleanOps>
+          La saisie des données et les contrôles de qualité sont assurés par le prestataire, et les données sont transmises à la Banque mondiale par lots (généralement 10 %, 50 % et 100 %). Ces données sont vérifiées afin de garantir leur cohérence logique, l'absence de valeurs aberrantes, de discontinuités et de doublons. La Banque mondiale signale les problèmes, qui sont ensuite corrigés par le prestataire au moyen de contrôles de données, de rappels et de visites sur place.
+        </cleanOps>
+      </dataColl>
+      <anlyInfo>
+        <respRate>
+          <![CDATA[Il convient de distinguer la non-réponse à l'enquête de la non-réponse à certaines questions. La première désigne le refus total de participer à l'enquête, tandis que la seconde désigne le refus de répondre à certaines questions spécifiques. Les enquêtes en entreprise sont confrontées à ces deux problèmes, et différentes stratégies ont été mises en œuvre pour y remédier.
+
+Le non-respect des consignes a été géré par deux stratégies :
+a- Pour les questions sensibles susceptibles de susciter des réactions négatives, comme la corruption ou la fraude fiscale, les enquêteurs ont reçu pour instruction de recueillir l’option « Refus de répondre » (-8) plutôt que « Je ne sais pas » (-9).
+b- Les établissements dont les informations étaient incomplètes ont été recontactés afin de les compléter, le cas échéant.
+
+Le problème de la non-réponse à l'enquête a été résolu en intensifiant les efforts de contact avec les établissements initialement sélectionnés pour l'entretien. Des tentatives ont été faites pour contacter ces établissements à différents moments de la semaine avant de proposer un établissement de remplacement (présentant des caractéristiques similaires). Malgré la persistance de la non-réponse, des substitutions ont été effectuées afin d'atteindre au mieux les objectifs spécifiques à chaque strate.
+
+Le nombre d'entretiens par établissement contacté était de 0,44. Ce chiffre s'explique par deux facteurs : les refus explicites de participer à l'enquête, comme l'indique le taux de rejet (qui inclut les rejets du questionnaire de présélection et du questionnaire principal), et la qualité de la base de sondage, caractérisée par la présence d'établissements non admissibles. Le nombre de rejets par contact était de 0,52.]]>
+        </respRate>
+        <EstSmpErr>
+          Compte tenu de l'incidence que les unités non admissibles incluses dans l'échantillon peuvent avoir sur les résultats, des ajustements peuvent s'avérer nécessaires lors du calcul des pondérations appropriées pour chaque observation.
+        </EstSmpErr>
+      </anlyInfo>
+    </method>
+    <dataAccs>
+      <useStmt>
+        <confDec required="yes">
+          La confidentialité des personnes interrogées et des informations sensibles qu'elles fournissent est essentielle pour garantir une participation optimale à l'enquête, son intégrité et la fiabilité des données. Les enquêtes sont généralement menées en collaboration avec des organisations professionnelles et des organismes gouvernementaux œuvrant pour la création d'emplois et la croissance économique, mais la confidentialité est systématiquement respectée.
+        </confDec>
+        <contact affiliation=" Groupe de la Banque mondiale">
+          Joshua Wimpey
+        </contact>
+        <citReq>
+          <![CDATA[L’utilisation de cet ensemble de données doit être mentionnée au moyen d’une citation qui comprendrait :
+
+l'identification du chercheur principal (y compris le nom du pays)
+le titre complet de l'enquête et son acronyme (lorsqu'il est disponible), ainsi que l'année ou les années de mise en œuvre
+le numéro de référence de l'enquête
+la source et la date de téléchargement (pour les ensembles de données diffusés en ligne)
+Exemple:
+
+Banque mondiale. Enquête auprès des entreprises du Bénin (ES) 2016, réf. BEN_2016_ES_v01_M. Jeu de données téléchargé depuis [URL] le [date].]]>
+        </citReq>
+        <conditions>
+          La signature d'une déclaration de confidentialité est requise.
+        </conditions>
+        <disclaimer>
+          L’utilisateur des données reconnaît que le collecteur initial des données, le distributeur autorisé des données et l’organisme de financement concerné ne sont pas responsables de l’utilisation des données ni des interprétations ou conclusions qui en découlent.
+        </disclaimer>
+      </useStmt>
+    </dataAccs>
+  </stdyDscr>
+  <dataDscr>
+    <varGrp ID="VG1" type="subject"/>
+  </dataDscr>
+</codeBook>

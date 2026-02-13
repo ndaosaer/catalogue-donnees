@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block title %}Accueil - Catalogue de Données{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Bienvenue sur le Catalogue National de Données</h1>
+            <p class="hero-subtitle">Explorez et accédez aux données d'enquêtes statistiques du Bénin</p>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <form action="/catalog" method="get" class="search-form">
+                    <input type="text" 
+                           name="q" 
+                           id="search-input" 
+                           class="search-input" 
+                           placeholder="Rechercher des enquêtes, indicateurs, thématiques..."
+                           autocomplete="off">
+                    <button type="submit" class="search-button">Rechercher</button>
+                </form>
+                <div id="search-results" class="search-results"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics -->
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">{{ datasets|length }}</div>
+                <div class="stat-label">Enquêtes disponibles</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">
+                    {% set total_vars = namespace(count=0) %}
+                    {% for id, dataset in datasets.items() %}
+                        {% set total_vars.count = total_vars.count + dataset.metadata.var_qty|int %}
+                    {% endfor %}
+                    {{ total_vars.count }}
+                </div>
+                <div class="stat-label">Variables documentées</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">
+                    {% set total_obs = namespace(count=0) %}
+                    {% for id, dataset in datasets.items() %}
+                        {% set total_obs.count = total_obs.count + dataset.metadata.case_qty|int %}
+                    {% endfor %}
+                    {{ "{:,}".format(total_obs.count).replace(',', ' ') }}
+                </div>
+                <div class="stat-label">Observations collectées</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Accès libre</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Datasets -->
+<section class="featured-section">
+    <div class="container">
+        <h2 class="section-title"> Enquêtes Récentes</h2>
+        <div class="datasets-grid">
+            {% for dataset_id, dataset in datasets.items() %}
+            <div class="dataset-card">
+                <div class="dataset-header">
+                    <span class="dataset-badge">{{ dataset.metadata.data_kind }}</span>
+                    <span class="dataset-date">{{ dataset.metadata.start_date[:4] if dataset.metadata.start_date != 'Non spécifié' else 'N/A' }}</span>
+                </div>
+                <h3 class="dataset-title">
+                    <a href="/dataset/{{ dataset_id }}">{{ dataset.metadata.title }}</a>
+                </h3>
+                <p class="dataset-description">
+                    {{ dataset.metadata.abstract[:200] }}{% if dataset.metadata.abstract|length > 200 %}...{% endif %}
+                </p>
+                <div class="dataset-meta">
+                    <div class="meta-item">
+                        <strong>Variables:</strong> {{ dataset.metadata.var_qty }}
+                    </div>
+                    <div class="meta-item">
+                        <strong>Observations:</strong> {{ "{:,}".format(dataset.metadata.case_qty|int).replace(',', ' ') }}
+                    </div>
+                </div>
+                <div class="dataset-footer">
+                    <a href="/dataset/{{ dataset_id }}" class="btn-primary">Voir les détails →</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+    <div class="container">
+        <div class="about-content">
+            <h2 class="section-title"> À propos du Catalogue</h2>
+            <div class="about-grid">
+                <div class="about-item">
+                    <div class="about-icon"></div>
+                    <h3>Mission</h3>
+                    <p>Faciliter l'accès et la diffusion des données statistiques pour soutenir la recherche et la prise de décision éclairée.</p>
+                </div>
+                <div class="about-item">
+                    <div class="about-icon"></div>
+                    <h3>Transparence</h3>
+                    <p>Toutes les métadonnées sont documentées selon les standards internationaux DDI (Data Documentation Initiative).</p>
+                </div>
+                <div class="about-item">
+                    <div class="about-icon"></div>
+                    <h3>Collaboration</h3>
+                    <p>Fruit d'une collaboration entre institutions nationales et partenaires internationaux.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function() {
+    // Recherche en temps réel
+    let searchTimeout;
+    $('#search-input').on('input', function() {
+        clearTimeout(searchTimeout);
+        const query = $(this).val().trim();
+        
+        if (query.length < 3) {
+            $('#search-results').hide();
+            return;
+        }
+        
+        searchTimeout = setTimeout(function() {
+            $.get('/search', { q: query }, function(data) {
+                if (data.results.length > 0) {
+                    let html = '<div class="results-list">';
+                    data.results.forEach(function(result) {
+                        html += `
+                            <div class="result-item">
+                                <a href="/dataset/${result.id}">
+                                    <h4>${result.title}</h4>
+                                    <p>${result.abstract}</p>
+                                </a>
+                            </div>
+                        `;
+                    });
+                    html += '</div>';
+                    $('#search-results').html(html).show();
+                } else {
+                    $('#search-results').html('<div class="no-results">Aucun résultat trouvé</div>').show();
+                }
+            });
+        }, 300);
+    });
+    
+    // Fermer les résultats en cliquant ailleurs
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.search-container').length) {
+            $('#search-results').hide();
+        }
+    });
+});
+</script>
+{% endblock %}

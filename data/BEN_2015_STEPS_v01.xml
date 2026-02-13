@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<codeBook version="1.2.2" ID="BEN-2015-STEPS-v01" xml-lang="fr" xmlns="http://www.icpsr.umich.edu/DDI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd">
+  <docDscr>
+    <citation>
+      <titlStmt>
+        <titl>
+          Benin STEPS Noncommunicable Disease Risk Factors Survey 2015
+        </titl>
+      </titlStmt>
+      <prodStmt>
+        <producer abbr="ENSAE" affiliation="ANSD">
+          Ecole nationale de la Statistique et de l'Analyse économique
+        </producer>
+        <prodDate date="2026-01-29">
+          2026-01-29
+        </prodDate>
+        <software version="4.0.10" date="2018-05-02">
+          Nesstar Publisher
+        </software>
+      </prodStmt>
+    </citation>
+  </docDscr>
+  <stdyDscr>
+    <citation>
+      <titlStmt>
+        <titl>
+          ETAPES 2015
+        </titl>
+        <subTitl>
+          Enquête sur les facteurs de risque des maladies non transmissibles
+        </subTitl>
+        <altTitl>
+          STEPS Bénin 2015
+        </altTitl>
+        <parTitl>
+          Enquête STEPS sur les facteurs de risque des maladies non transmissibles 2015
+        </parTitl>
+        <IDNo>
+          BEN-2015-STEPS-v01
+        </IDNo>
+      </titlStmt>
+      <rspStmt>
+        <AuthEnty affiliation="Ministère de la Santé, République du Bénin">
+          Programme National de Lutte contre les Maladies Non Transmissibles (PNLMNT)
+        </AuthEnty>
+      </rspStmt>
+      <prodStmt>
+        <producer>
+          Organisation Mondiale de la Santé (OMS/ WHO)
+        </producer>
+        <copyright>
+          Propriété: © Ministère de la Santé du Bénin / Organisation Mondiale de la Santé
+        </copyright>
+        <software version="4.0.10" date="2018-05-02">
+          Nesstar Publisher
+        </software>
+        <fundAg>
+          Gouvernement du Bénin
+        </fundAg>
+        <fundAg>
+          Organisation Mondiale de la Santé (OMS)
+        </fundAg>
+      </prodStmt>
+      <distStmt>
+        <contact affiliation="Organisation mondiale de la santé" URI="http://www.who.int/ncds/surveillance/steps/en/ http://www.who.int/ncds/surveillance/steps/en/ http://www.who.int/ncds/surveillance/steps/en/ http://www.who.int/ncds/surveillance/steps/en/ http://www.who.int/ncds/surveillance/steps/en/" email="ncdmonitoring@who.int">
+          Équipe de surveillance des maladies du Nord (NCD)
+        </contact>
+      </distStmt>
+      <serStmt>
+        <serName>
+          Enquête démographique et de santé [hh/dhs]
+        </serName>
+        <serInfo>
+          WHO STEPwise approach to NCD surveillance (STEPS)
+        </serInfo>
+      </serStmt>
+      <verStmt>
+        <version date="2018-09-28">
+          Version 01: Dataset édité et anonymisé pour distribution publique
+        </version>
+        <notes>
+          Les sujets suivants ont été abordés dans l’enquête : consommation de tabac, consommation d’alcool, régime, activité physique, antécédents d’hypertension dans le sang, antécédents d’hypertension artérielle, historique de cholestérol total élevé, antécédents de maladies cardiovasculaires, conseils sur le mode de vie et dépistage du cancer du col de l’utérus. De plus, les mesures suivantes ont été prises : tension artérielle, taille, poids, circonférence de taille, circonférence de la hanche, fréquence cardiaque, glycémie à jeun, cholestérol total. Enfin, les modules optionnels suivants étaient inclus : politique sur le tabac, santé bucco-dentaire.
+        </notes>
+      </verStmt>
+    </citation>
+    <stdyInfo>
+      <subject>
+        <keyword>
+          Maladies non transmissibles
+        </keyword>
+        <keyword>
+          facteurs de risque
+        </keyword>
+        <keyword>
+          tabac
+        </keyword>
+        <keyword>
+          alcool
+        </keyword>
+        <keyword>
+          hypertension
+        </keyword>
+        <keyword>
+          diabète
+        </keyword>
+        <keyword>
+          obésité
+        </keyword>
+        <keyword>
+          activité physique
+        </keyword>
+        <keyword>
+          nutrition
+        </keyword>
+        <keyword>
+          OMS STEPS
+        </keyword>
+        <topcClas>
+          Santé publique
+        </topcClas>
+        <topcClas>
+          Maladies non transmissibles
+        </topcClas>
+        <topcClas>
+          Facteurs de risque pour la santé
+        </topcClas>
+      </subject>
+      <abstract>
+        Enquête STEPS menée au Bénin en 2015 pour obtenir des données sur les facteurs de risque des maladies non transmissibles (MNT). L'enquête utilise la méthodologie standardisée de l'OMS en 3 étapes: questionnaire, mesures physiques, et mesures biochimiques. Elle couvre les 12 départements du Bénin et a ciblé les adultes de 18 à 69 ans.
+      </abstract>
+      <sumDscr>
+        <collDate date="2015-10-19" event="start" cycle="2 mois"/>
+        <collDate date="2015-12-30" event="end" cycle="2 mois"/>
+        <nation abbr="BEN">
+          Bénin
+        </nation>
+        <geogCover>
+          C'est une enquête à couverture nationale portannt sur les 12 départements du Bénin
+        </geogCover>
+        <geogUnit>
+          Département et commune
+        </geogUnit>
+        <anlyUnit>
+          Individu adulte (18-69 ans)
+        </anlyUnit>
+        <universe>
+          Adultes non institutionnalisés âgés de 18 à 69 ans résidant au Bénin
+        </universe>
+        <dataKind>
+          Données échantillonées [ssd]
+        </dataKind>
+      </sumDscr>
+      <notes>
+        <![CDATA[Step 1 (Questionnaire): 
+Consommation de tabac 
+Consommation d'alcool
+Régime alimentaire (fruits, légumes, sel) Activité physique
+Antécédents de glycémie élevée
+Antécédents d'hypertension artérielle
+Antécédents de cholestérol élevé
+Antécédents de maladies cardiovasculaires
+Conseils sur le mode de vie
+Dépistage du cancer du col de l'utérus Step 2 (Mesures physiques):
+Pression artérielle 
+Taille et poids (IMC)
+Tour de taille et de hanches 
+Fréquence cardiaque
+Step 3 (Mesures biochimiques): Glycémie à jeun 
+Cholestérol total
+Modules optionnels: Politique antitabac 
+Santé bucco-dentaire]]>
+      </notes>
+    </stdyInfo>
+    <method>
+      <dataColl>
+        <dataCollector abbr="République du Bénin">
+          Ministère de la santé
+        </dataCollector>
+        <sampProc>
+          <![CDATA[Un échantillon de foyers en regroupement à plusieurs étapes. Une personne de la tranche d’âge de l’enquête a été sélectionnée par ménage. Voir la page 22 du rapport pour plus de détails.
+Type: Échantillonnage en grappes à plusieurs degrés 
+Stratification: Par département (12 départements) 
+Sélection:
+Premier degré: Zones de dénombrement (ZD) 
+Deuxième degré: Ménages
+Troisième degré: Individus 
+Taille de l'échantillon:
+Échantillon planifié: 5 126 participants]]>
+        </sampProc>
+        <collMode>
+          Interview face à face [f2f]
+        </collMode>
+        <resInstru>
+          <![CDATA[Langue du questionnaire: Français et langues locales principales
+Disponibilité: Questionnaire STEPS standardisé disponible sur le site OMS NCD Microdata]]>
+        </resInstru>
+        <sources/>
+        <collSitu>
+          <![CDATA[Les dispositifs PA CardioChek ont été utilisés pour toutes les mesures sanguines de Step 3.
+3 étapes séquentielles (questionnaire, mesures physiques, prélèvements biochimiques)
+Collecte à domicile
+Consentement éclairé obtenu avant chaque étape]]>
+        </collSitu>
+        <weight>
+          <![CDATA[Les pondérations d’analyse ont été calculées en prenant l’inverse de la probabilité de sélection de chaque participant. Ces poids ont été ajustés en fonction des différences de composition âge-sexe de la population échantillonnée par rapport à la population cible.
+
+Différentes variables de poids sont disponibles selon l’étape :
+wStep1 - pour les données
+d’entretien wStep2 - pour les mesures
+physiques wStep3 - pour les mesures
+biochimiques Cela permet des différences dans le calcul du poids pour chaque étape de l’enquête, car la composition âge-sexe des répondants à chaque étape peut légèrement varier en raison d’un refus ou d’un abandon. De plus, certains pays effectuent un sous-échantillonnage pour l’étape 2 et/ou l’étape 3. Lorsque le sous-échantillonnage n’est pas effectué et que les taux de réponse ne diffèrent pas entre les étapes de l’enquête, les 3 variables pondératives seront les mêmes.]]>
+        </weight>
+        <cleanOps>
+          <![CDATA[ Nettoyage selon protocole STEPS standardisé
+Vérification des valeurs aberrantes (mesures physiques et biochimiques)
+Création de variables catégorielles selon seuils OMS Anonymisation]]>
+        </cleanOps>
+      </dataColl>
+      <notes>
+        <![CDATA[Pondération:
+Poids calculés pour corriger les probabilités de sélection
+Ajustements pour la composition âge-sexe par rapport à la population cible
+3 variables de poids: wStep1, wStep2, wStep3 (pour tenir compte des différences de participation) 
+Analyse standardisée: Selon recommandations OMS STEPS]]>
+      </notes>
+      <anlyInfo>
+        <EstSmpErr>
+          <![CDATA[Erreurs standard calculées selon méthodologie STEPS
+Intervalles de confiance à 95%]]>
+        </EstSmpErr>
+        <dataAppr>
+          <![CDATA[Rapport national STEPS publié par le Ministère de la Santé et l'OMS Fact sheet disponible
+Publication scientifique: "Magnitude of Cardiovascular Risk Factors in Rural and Urban Areas in Benin: Findings from a Nationwide STEPS Survey" (PLOS ONE, 2015)]]>
+        </dataAppr>
+      </anlyInfo>
+    </method>
+    <dataAccs>
+      <useStmt>
+        <confDec required="yes">
+          <![CDATA[Niveau de confidentialité: Données publiques anonymisées 
+Déclaration: Toutes les informations identifiantes ont été supprimées]]>
+        </confDec>
+        <contact affiliation="Organisation mondiale de la santé" URI=" http://www.who.int/ncds/surveillance/steps/en/" email="ncdmonitoring@who.int">
+          Équipe de surveillance des maladies du Nord (NCD)
+        </contact>
+        <citReq>
+          <![CDATA[Les publications basées sur les données STEPS doivent citer le rapport d’enquête (si disponible) et accuser réputation de la source des données de la manière suivante :
+« Cet article utilise les données de l’enquête STEPS [nationale] [année], mise en œuvre par [agence de mise en charge] avec le soutien de l’Organisation mondiale de la santé. »]]>
+        </citReq>
+        <conditions>
+          <![CDATA[L’utilisateur s’engage à :
+(1) à accuser réceptionné de la source de données.
+(2) partager toute publication prévue avec l’OMS avant la publication.
+(3) de fournir la co-auteur de tout rapport ou publication utilisant les résultats de l’enquête au coordinateur de l’enquête.
+(4) utiliser les données uniquement à des fins de santé publique non commerciales et à but non lucratif.]]>
+        </conditions>
+        <disclaimer>
+          <![CDATA[Les données sont distribuées sans aucune garantie. La responsabilité de l’utilisation des données incombe à l’utilisateur.  En aucun cas, l’Organisation mondiale de la santé ne sera responsable des dommages résultant de son utilisation.]]>
+        </disclaimer>
+      </useStmt>
+    </dataAccs>
+  </stdyDscr>
+  <fileDscr ID="F1" URI="BEN_2015_STEPS_v01.Nesstar?Index=0&amp;Name=benin2015">
+    <fileTxt>
+      <fileName>
+        benin2015.NSDstat
+      </fileName>
+      <dimensns>
+        <caseQnty>
+          0
+        </caseQnty>
+        <varQnty>
+          0
+        </varQnty>
+      </dimensns>
+      <fileType>
+        Nesstar 200801
+      </fileType>
+    </fileTxt>
+  </fileDscr>
+  <dataDscr/>
+</codeBook>

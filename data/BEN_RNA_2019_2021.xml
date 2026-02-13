@@ -1,0 +1,464 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<codeBook version="1.2.2" ID="BEN-2019-2021-RNA-v01" xml-lang="fr" xmlns="http://www.icpsr.umich.edu/DDI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd">
+  <docDscr>
+    <citation>
+      <titlStmt>
+        <titl>
+          Recensement National de l'Agriculture 2018-2021 du Bénin
+        </titl>
+        <IDNo>
+          DDI-BEN-2019-2021-RNA-v01
+        </IDNo>
+      </titlStmt>
+      <prodStmt>
+        <producer abbr="ENSAE" affiliation="ANSD">
+          Ecole nationale de la Statistiques et de l'Analyse éconmique
+        </producer>
+        <producer/>
+        <prodDate date="2026-01-30">
+          2026-01-30
+        </prodDate>
+        <software version="4.0.10" date="2018-05-02">
+          Nesstar Publisher
+        </software>
+      </prodStmt>
+      <verStmt>
+        <version>
+          Version 1.0
+        </version>
+        <notes>
+          Documentation DDI créée pour archivage dans le NADA Bénin. Les métadonnées ont été compilées à partir des documents officiels du RNA (rapports, documents stratégiques, publications INStaD).
+        </notes>
+      </verStmt>
+    </citation>
+  </docDscr>
+  <stdyDscr>
+    <citation>
+      <titlStmt>
+        <titl>
+          Recensement National de l'Agriculture (RNA)
+        </titl>
+        <subTitl>
+          Premier recensement agricole exhaustif du Bénin
+        </subTitl>
+        <altTitl>
+          RNA Bénin 2019-2021
+        </altTitl>
+        <parTitl>
+          National Agricultural Census 2019-2021
+        </parTitl>
+        <IDNo>
+          BEN-2019-2021-RNA-v01
+        </IDNo>
+      </titlStmt>
+      <rspStmt>
+        <AuthEnty affiliation="Ministère de l'Agriculture, de l'Élevage et de la Pêche">
+          Direction de la Statistique Agricole (DSA)
+        </AuthEnty>
+        <AuthEnty/>
+        <AuthEnty/>
+        <othId>
+          <p>
+            FAO
+          </p>
+        </othId>
+        <othId>
+          <p>
+            Banque Africaine de Développement
+          </p>
+        </othId>
+      </rspStmt>
+      <prodStmt>
+        <producer/>
+        <producer abbr="DSA">
+          Direction de la Statistique Agricole
+        </producer>
+        <producer abbr="INStaD">
+          Institut National de la Statistique et de la Démographie
+        </producer>
+        <producer>
+          Bureau d'Étude et d'Appui au Secteur Agricole (B2A)
+        </producer>
+        <copyright>
+          © 2022, République du Bénin, Ministère de l'Agriculture, de l'Élevage et de la Pêche
+        </copyright>
+        <prodDate date="2022-01-25">
+          2022-01-25
+        </prodDate>
+        <prodPlac>
+          Cotonou, Bénin
+        </prodPlac>
+        <software version="4.0.10" date="2018-05-02">
+          Nesstar Publisher
+        </software>
+        <fundAg>
+          Gouvernement de la République du Bénin - Budget national (100% financement propre)
+        </fundAg>
+        <grantNo>
+          3 021 450 235 FCFA
+        </grantNo>
+      </prodStmt>
+      <distStmt>
+        <distrbtr abbr="DSA" URI="https://dsa.agriculture.gouv.bj">
+          Direction de la Statistique Agricole
+        </distrbtr>
+        <distrbtr abbr="INStaD" URI="https://instad.bj">
+          Institut National de la Statistique et de la Démographie
+        </distrbtr>
+        <contact affiliation="DSA" email="Contact via dsa.agriculture.gouv.bj">
+          Bureau Central du RNA
+        </contact>
+        <distDate date="2022-01-25"/>
+      </distStmt>
+      <serStmt>
+        <serName>
+          Recensement agricole [ag/census]
+        </serName>
+        <serInfo>
+          Programme Mondial du Recensement de l'Agriculture 2020 (WCA 2020) de la FAO
+        </serInfo>
+      </serStmt>
+      <verStmt>
+        <version date="2022-01-25">
+          <![CDATA[Version 01 -  Module de base - Données structurelles de l'agriculture béninoise]]>
+        </version>
+        <notes>
+          <![CDATA[Premier recensement agricole complet jamais réalisé au Bénin 
+Tentatives précédentes de 1998 et 2008 n'ont pas abouti
+Module de base achevé, modules complémentaires prévus à partir de 2021]]>
+        </notes>
+      </verStmt>
+    </citation>
+    <stdyInfo>
+      <subject>
+        <keyword vocab="CESSDA">
+          Recensement agricole
+        </keyword>
+        <keyword vocab="CESSDA">
+          Agriculture
+        </keyword>
+        <keyword vocab="CESSDA">
+          Exploitations agricoles
+        </keyword>
+        <keyword vocab="CESSDA">
+          Production végétale
+        </keyword>
+        <keyword vocab="CESSDA">
+          Élevage
+        </keyword>
+        <keyword vocab="CESSDA">
+          Production animale
+        </keyword>
+        <keyword vocab="CESSDA">
+          Pêche
+        </keyword>
+        <keyword vocab="CESSDA">
+          Aquaculture
+        </keyword>
+        <keyword vocab="CESSDA">
+          Ménages agricoles
+        </keyword>
+        <keyword vocab="CESSDA">
+          Statistiques agricoles
+        </keyword>
+        <keyword vocab="CESSDA">
+          Développement rural
+        </keyword>
+        <keyword vocab="CESSDA">
+          Sécurité alimentaire
+        </keyword>
+        <keyword vocab="CESSDA">
+          Tenure foncière
+        </keyword>
+        <keyword vocab="CESSDA">
+          Genre et agriculture
+        </keyword>
+        <topcClas vocab="CESSDA" vocabURI="http://www.nesstar.org/rdf/common">
+          Agriculture et développement rural
+        </topcClas>
+        <topcClas vocab="CESSDA" vocabURI="http://www.nesstar.org/rdf/common">
+          Production agricole
+        </topcClas>
+        <topcClas vocab="CESSDA" vocabURI="http://www.nesstar.org/rdf/common">
+          Statistiques agricoles
+        </topcClas>
+      </subject>
+      <abstract>
+        Le Recensement National de l'Agriculture (RNA) est la première opération statistique exhaustive du secteur agricole béninois jamais réalisée. Autorisé par décret N° 2018-073 du 12 mars 2018 et lancé officiellement le 22 juin 2018, le RNA s'inscrit dans le cadre du 10ème Programme Mondial du Recensement de l'Agriculture (WCA 2020) de la FAO. Utilisant l'approche modulaire recommandée par la FAO, le module de base a permis le dénombrement exhaustif de toutes les exploitations agricoles sur l'ensemble du territoire national entre 2019 et 2021. Le recensement a mobilisé plus de 7 000 agents de terrain et a bénéficié de l'assistance technique de la FAO via le projet TCP/BEN/3604. Les résultats publiés en janvier 2022 révèlent 913 000 exploitations agricoles, 926 539 ménages agricoles et 6,5 millions d'individus vivant de l'agriculture. Le RNA fournit pour la première fois des données structurelles fiables sur l'agriculture béninoise et constitue désormais la base de sondage de référence pour toutes les enquêtes agricoles futures.
+      </abstract>
+      <sumDscr>
+        <timePrd date="2018-06-22" event="start"/>
+        <timePrd date="2021-12-31" event="end"/>
+        <collDate date="2019-01-01" event="start"/>
+        <collDate date="2021-12-31" event="end"/>
+        <nation abbr="BEN">
+          Bénin
+        </nation>
+        <geogCover>
+          Couverture nationale exhaustive : 12 départements (Alibori, Atacora, Atlantique, Borgou, Collines, Couffo, Donga, Littoral, Mono, Ouémé, Plateau, Zou), 77 communes, 29 zones de coordination, ensemble des villages et quartiers de ville du Bénin
+        </geogCover>
+        <geogUnit>
+          Département, Commune, Arrondissement, Village/Quartier de ville, Zone de Dénombrement Agricole (ZDA)
+        </geogUnit>
+        <anlyUnit>
+          Exploitation agricole, Ménage agricole, Communauté
+        </anlyUnit>
+        <universe>
+          Tous les ménages et toutes les exploitations pratiquant des activités agricoles, d'élevage, de pêche, d'aquaculture, d'apiculture ou des activités para-agricoles sur le territoire béninois. Une exploitation agricole est définie comme une unité économique de production agricole sous gestion unique.
+        </universe>
+        <dataKind>
+          Données de recensesement / énumération [cen]
+        </dataKind>
+      </sumDscr>
+      <notes>
+        <![CDATA[Données sur les exploitations agricoles: 
+Caractéristiques des exploitants et de la main-d'œuvre
+Superficies cultivées par culture 
+Systèmes de production Équipements et matériels agricoles 
+Pratiques agricoles
+Accès aux intrants (semences, engrais, pesticides)
+Irrigation 
+Production animale:
+Effectifs du cheptel par espèce
+Systèmes d'élevage
+Production de lait, œufs, miel 
+Pêche et aquaculture:
+Activités de pêche 
+Aquaculture
+Données communautaires: 
+Infrastructure rurale 
+Accès aux marchés
+Accès aux services (santé, éducation, eau)
+Organisation paysanne 
+Tenure foncière:
+Mode d'accès à la terre
+Sécurité foncière 
+Genre:
+Rôle des femmes dans l'agriculture 
+Accès des femmes aux ressources]]>
+      </notes>
+    </stdyInfo>
+    <method>
+      <dataColl>
+        <timeMeth>
+          Recensement exhaustif avec approche modulaire (WCA 2020)
+        </timeMeth>
+        <dataCollector abbr="DSA">
+          Direction de la Statistique Agricole - MAEP
+        </dataCollector>
+        <dataCollector abbr="INStaD">
+          Institut National de la Statistique et de la Démographie
+        </dataCollector>
+        <sampProc>
+          <![CDATA[ Type: Recensement exhaustif (pas d'échantillonnage - couverture universelle) 
+Approche: Dénombrement complet de toutes les exploitations agricoles 
+Base de dénombrement: Zones de dénombrement (ZD) issues du RGPH 2013]]>
+        </sampProc>
+        <deviat>
+          Aucune déviation majeure signalée. Couverture universelle réalisée.
+        </deviat>
+        <collMode>
+          Interview face à face [f2f]
+        </collMode>
+        <resInstru>
+          <![CDATA[Types de questionnaires:
+Questionnaire exploitation agricole Questionnaire ménage agricole Questionnaire communautaire]]>
+        </resInstru>
+        <sources>
+          <dataSrc>
+            <![CDATA[Enquête exhaustive auprès des ménages agricoles
+
+Enquête communautaire dans les villages
+
+Observations de terrain et géoréférencement]]>
+          </dataSrc>
+        </sources>
+        <collSitu>
+          <![CDATA[Mode de collecte: Entretiens en face-à-face avec collecte électronique sur tablettes 
+Instrument: Questionnaires électroniques sur tablettes (CAPI)
+Approches:
+Enquête auprès des ménages agricoles
+Enquête communautaire 
+Répondants:
+Chef d'exploitation agricole Chef de ménage agricole
+Autorités et personnes ressources des communautés]]>
+        </collSitu>
+        <actMin>
+          <![CDATA[Structure de supervision:
+Comité de Pilotage et de Coordination (présidé par le Ministre de l'Agriculture) 
+Comité Technique National
+Commission Technique de Contrôle et de Suivi 
+Superviseurs départementaux
+Contrôleurs sur le terrain]]>
+        </actMin>
+        <weight>
+          Pas de pondération nécessaire - recensement exhaustif (pas d'échantillonnage)
+        </weight>
+        <cleanOps>
+          <![CDATA[Vérification et nettoyage des données Codification standardisée
+Validation par la FAO (assurance qualité) Création de bases de données géoréférencées]]>
+        </cleanOps>
+      </dataColl>
+      <notes>
+        <![CDATA[Production de tabulations:
+Plan de tabulation défini
+Production de statistiques descriptives 
+Analyses par département et commune]]>
+      </notes>
+      <anlyInfo>
+        <respRate>
+          Non applicable - recensement exhaustif
+        </respRate>
+        <EstSmpErr>
+          <![CDATA[Contrôles qualité quotidiens pendant la collecte
+Validation des processus et résultats
+Rapport technique d'évaluation]]>
+        </EstSmpErr>
+        <dataAppr>
+          <![CDATA[Résultats clés publiés
+913 000 exploitations agricoles identifiées
+926 539 ménages agricoles
+6,5 millions d'individus dans les ménages agricoles 
+Statistiques détaillées par département et filière]]>
+        </dataAppr>
+      </anlyInfo>
+    </method>
+    <dataAccs>
+      <setAvail>
+        <accsPlac URI="https://rna.agriculture.gouv.bj">
+          Site officiel RNA
+        </accsPlac>
+        <accsPlac URI="https://dsa.agriculture.gouv.bj">
+          Direction de la Statistique Agricole
+        </accsPlac>
+        <accsPlac URI="https://instad.bj">
+          Institut National de la Statistique et de la Démographie
+        </accsPlac>
+        <origArch>
+          Direction de la Statistique Agricole (DSA), Ministère de l'Agriculture, de l'Élevage et de la Pêche, 03 BP 2900 Cotonou, Tél : +229 21 30 10 87 / +229 21 30 04 10
+        </origArch>
+        <avlStatus>
+          STATUT : Rapport principal et statistiques agrégées publiés et accessibles. Microdonnées au niveau exploitation/ménage disponibles sur demande auprès de la DSA ou de l'INStaD selon procédure d'accès à définir.
+        </avlStatus>
+      </setAvail>
+      <useStmt>
+        <confDec required="yes">
+          <![CDATA[ Niveau de confidentialité: Données anonymisées au niveau exploitation/ménage 
+Déclaration: Conformité avec la loi statistique béninoise sur la confidentialité]]>
+        </confDec>
+        <restrctn>
+          Données agrégées : Accès public via rapports et site web. Microdonnées : Accès sur demande auprès de la DSA/MAEP ou INStaD avec justification d'utilisation et acceptation d'un protocole de confidentialité.
+        </restrctn>
+        <contact affiliation="DSA/MAEP" URI="https://dsa.agriculture.gouv.bj">
+          Direction de la Statistique Agricole
+        </contact>
+        <contact affiliation="INStaD" URI="https://instad.bj" email="instad@instad.bj">
+          Institut National de la Statistique et de la Démographie
+        </contact>
+        <citReq>
+          République du Bénin, Ministère de l'Agriculture, de l'Élevage et de la Pêche. Recensement National de l'Agriculture (RNA) 2019-2021, Module de Base. Direction de la Statistique Agricole (DSA) / Institut National de la Statistique et de la Démographie (INStaD), avec l'appui de la FAO. [BEN_2019-2021_RNA_v01]. Données obtenues de [source] le [date].
+        </citReq>
+        <conditions>
+          <![CDATA[Données agrégées:
+Rapports et statistiques publiées accessibles publiquement
+Site RNA et site INStaD 
+Microdata:
+Accès sur demande auprès de la DSA/MAEP ou INStaD Soumission d'une demande avec justification d'utilisation
+Acceptation d'un protocole de confidentialité 
+Format:
+Rapports: PDF
+Données agrégées: Excel, bases de données en ligne
+Microdata: Stata (.dta), SPSS (.sav) (format à confirmer) 
+Documentation:
+Rapport national RNA disponible
+Questionnaires
+Méthodologie
+Document de stratégie RNA]]>
+        </conditions>
+        <disclaimer>
+          L'utilisateur des données reconnaît que le Ministère de l'Agriculture, de l'Élevage et de la Pêche, l'Institut National de la Statistique et de la Démographie, la FAO et les autres partenaires ne portent aucune responsabilité quant à l'utilisation des données ou aux interprétations ou inférences fondées sur de telles utilisations.
+        </disclaimer>
+      </useStmt>
+    </dataAccs>
+    <othrStdyMat>
+      <relMat>
+        <citation>
+          <titlStmt>
+            <titl>
+              Recensement National de l'Agriculture - VOLUME 4 : Synthèse des principaux résultats
+            </titl>
+          </titlStmt>
+          <holdings URI="https://instad.bj"/>
+        </citation>
+      </relMat>
+      <relMat>
+        <citation>
+          <titlStmt>
+            <titl>
+              Recensement National de l'Agriculture - VOLUME 3 : Principaux tableaux du module de base
+            </titl>
+          </titlStmt>
+          <holdings URI="https://instad.bj"/>
+        </citation>
+      </relMat>
+      <relMat>
+        <citation>
+          <titlStmt>
+            <titl>
+              Recensement National de l'Agriculture - VOLUME 2 : Principaux résultats du module de base
+            </titl>
+          </titlStmt>
+          <holdings URI="https://instad.bj"/>
+        </citation>
+      </relMat>
+      <relMat>
+        <citation>
+          <titlStmt>
+            <titl>
+              Document de stratégie du Recensement National de l'Agriculture
+            </titl>
+          </titlStmt>
+          <holdings URI="https://apidsa.agriculture.gouv.bj/public/storage/uploads/QE0q1jaNBqDiRAIKxtze1VsKmODVsC1DsssfTAG9.pdf"/>
+        </citation>
+      </relMat>
+      <relPubl>
+        <citation>
+          <titlStmt>
+            <titl/>
+          </titlStmt>
+          <holdings URI="https://www.gouv.bj/article/1643/recensement-national-agriculture-benin-resultats-module-base-officiellement-disponibles/"/>
+        </citation>
+      </relPubl>
+      <relPubl>
+        <citation>
+          <titlStmt>
+            <titl/>
+          </titlStmt>
+          <holdings URI="https://www.fao.org/benin/actualites/"/>
+        </citation>
+      </relPubl>
+    </othrStdyMat>
+  </stdyDscr>
+  <fileDscr ID="F1" URI="BEN_RNA_2019_2021.Nesstar?Index=0&amp;Name=RNA_Module_Base_Synthese">
+    <fileTxt>
+      <fileName>
+        RNA_Module_Base_Synthese.NSDstat
+      </fileName>
+      <fileCont>
+        Synthèse des principaux résultats du module de base du RNA
+      </fileCont>
+      <dimensns>
+        <caseQnty>
+          0
+        </caseQnty>
+        <varQnty>
+          0
+        </varQnty>
+      </dimensns>
+      <fileType>
+        Nesstar 200801
+      </fileType>
+    </fileTxt>
+  </fileDscr>
+  <dataDscr/>
+</codeBook>

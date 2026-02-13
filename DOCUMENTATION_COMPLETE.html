@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Documentation - Catalogue de Données</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8fafc;
+            border-bottom: 2px solid #e2e8f0;
+            overflow-x: auto;
+        }
+
+        .nav-tab {
+            padding: 15px 30px;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-tab:hover {
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+        }
+
+        .nav-tab.active {
+            color: #2563eb;
+            border-bottom: 3px solid #2563eb;
+            background: white;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #2563eb;
+        }
+
+        .section h3 {
+            font-size: 1.3rem;
+            color: #334155;
+            margin: 25px 0 15px 0;
+        }
+
+        .file-tree {
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .file-tree .folder {
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .file-tree .file {
+            color: #64748b;
+            margin-left: 20px;
+        }
+
+        .file-tree .description {
+            color: #10b981;
+            font-style: italic;
+        }
+
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-block .keyword {
+            color: #c678dd;
+        }
+
+        .code-block .string {
+            color: #98c379;
+        }
+
+        .code-block .comment {
+            color: #5c6370;
+            font-style: italic;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #2563eb;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .info-box.warning {
+            background: #fef3c7;
+            border-left-color: #f59e0b;
+        }
+
+        .info-box.success {
+            background: #d1fae5;
+            border-left-color: #10b981;
+        }
+
+        .info-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #1e293b;
+        }
+
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .flow-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 150px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .flow-arrow {
+            font-size: 2rem;
+            color: #2563eb;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: #2563eb;
+        }
+
+        .feature-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card h4 {
+            font-size: 1.1rem;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: #fef3c7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        table th {
+            background: #2563eb;
+            color: white;
+            font-weight: 600;
+        }
+
+        table tr:hover {
+            background: #f8fafc;
+        }
+
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1> Documentation du Catalogue de Données</h1>
+            <p>Guide complet du fonctionnement de l'application Flask</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('overview')"> Vue d'ensemble</button>
+            <button class="nav-tab" onclick="showTab('structure')"> Structure</button>
+            <button class="nav-tab" onclick="showTab('backend')"> Backend</button>
+            <button class="nav-tab" onclick="showTab('frontend')"> Frontend</button>
+            <button class="nav-tab" onclick="showTab('flow')"> Flux de données</button>
+            <button class="nav-tab" onclick="showTab('resources')"> Ressources</button>
+        </div>
+
+        <div class="content">
+            <!-- OVERVIEW TAB -->
+            <div id="overview" class="tab-content active">
+                <div class="section">
+                    <h2> Vue d'ensemble de l'application</h2>
+                    
+                    <div class="info-box">
+                        <h4>Qu'est-ce que c'est ?</h4>
+                        <p>
+                            Le Catalogue de Données est une <strong>application web Flask</strong> qui transforme vos fichiers 
+                            XML DDI (créés avec Nesstar Publisher) en un catalogue web moderne et interactif, 
+                            inspiré du système NADA.
+                        </p>
+                    </div>
+
+                    <h3> Objectifs principaux</h3>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="icon"></div>
+                            <h4>Diffusion</h4>
+                            <p>Rendre les métadonnées des enquêtes accessibles via une interface web moderne</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="icon"></div>
+                            <h4>Recherche</h4>
+                            <p>Permettre la recherche rapide dans les datasets par titre, abstract et mots-clés</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="icon"></div>
+                            <h4>Documentation</h4>
+                            <p>Présenter les métadonnées complètes selon le standard DDI</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="icon"></div>
+                            <h4>Ressources</h4>
+                            <p>Donner accès aux fichiers de données, questionnaires et rapports</p>
+                        </div>
+                    </div>
+
+                    <h3> Technologies utilisées</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Composant</th>
+                                <th>Technologie</th>
+                                <th>Rôle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Backend</strong></td>
+                                <td>Python Flask 3.x</td>
+                                <td>Serveur web et routage</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Parser XML</strong></td>
+                                <td>lxml</td>
+                                <td>Extraction des métadonnées DDI</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Templates</strong></td>
+                                <td>Jinja2</td>
+                                <td>Génération HTML dynamique</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Frontend</strong></td>
+                                <td>HTML5, CSS3, JavaScript</td>
+                                <td>Interface utilisateur</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ressources</strong></td>
+                                <td>JSON</td>
+                                <td>Configuration des ressources externes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3> Fonctionnalités clés</h3>
+                    <ul>
+                        <li> <strong>Extraction automatique</strong> des métadonnées depuis les fichiers XML DDI</li>
+                        <li> <strong>Catalogue complet</strong> avec liste de tous les datasets</li>
+                        <li> <strong>Pages détaillées</strong> pour chaque enquête avec 5 onglets thématiques</li>
+                        <li> <strong>Recherche en temps réel</strong> avec suggestions instantanées</li>
+                        <li> <strong>Ressources externes</strong> : liens vers données, questionnaires, rapports</li>
+                        <li> <strong>Design responsive</strong> adapté mobile, tablette et desktop</li>
+                        <li> <strong>Page À propos</strong> avec informations sur le catalogue</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- STRUCTURE TAB -->
+            <div id="structure" class="tab-content">
+                <div class="section">
+                    <h2> Structure de l'application</h2>
+
+                    <h3> Arborescence complète</h3>
+                    <div class="file-tree">
+<pre>Catalogue_Donnees_Flask/
+│
+├──  <span class="file">app.py</span>                  <span class="description">#  Cœur de l'application Flask</span>
+├──  <span class="file">requirements.txt</span>         <span class="description">#  Dépendances Python</span>
+├──  <span class="file">resources.json</span>           <span class="description">#  Configuration ressources externes</span>
+│
+├──  <span class="file">start.bat</span>                <span class="description">#  Script démarrage Windows</span>
+├──  <span class="file">start.sh</span>                 <span class="description">#  Script démarrage Linux/Mac</span>
+├──  <span class="file">test.bat</span>                 <span class="description">#  Test installation Windows</span>
+├──  <span class="file">test_installation.py</span>     <span class="description">#  Script test Python</span>
+│
+├──  <span class="folder">data/</span>                    <span class="description">#  Vos fichiers XML DDI</span>
+│   ├── <span class="file">Afrobarometer_2025_Benin.xml</span>
+│   └── <span class="file">MICS_Benin_2021.xml</span>
+│
+├──  <span class="folder">templates/</span>               <span class="description">#  Templates HTML (Jinja2)</span>
+│   ├── <span class="file">base.html</span>            <span class="description"># Layout principal</span>
+│   ├── <span class="file">index.html</span>           <span class="description"># Page d'accueil</span>
+│   ├── <span class="file">catalog.html</span>         <span class="description"># Liste des datasets</span>
+│   ├── <span class="file">dataset.html</span>         <span class="description"># Détail d'un dataset</span>
+│   └── <span class="file">about.html</span>           <span class="description"># Page À propos</span>
+│
+├──  <span class="folder">static/</span>                  <span class="description">#  Fichiers statiques</span>
+│   └──  <span class="folder">css/</span>
+│       └── <span class="file">style.css</span>        <span class="description"># Styles de l'application</span>
+│
+└──  <span class="folder">Documentation/</span>           <span class="description">#  Guides et docs</span>
+    ├── <span class="file">README.md</span>
+    ├── <span class="file">GUIDE_RAPIDE.md</span>
+    ├── <span class="file">GUIDE_RESSOURCES_EXTERNES.md</span>
+    ├── <span class="file">INSTALLATION_WINDOWS.md</span>
+    └── <span class="file">CHANGELOG.md</span>
+</pre>
+                    </div>
+
+                    <h3> Rôle de chaque fichier/dossier</h3>
+
+                    <div class="info-box">
+                        <h4> app.py - Le cerveau de l'application</h4>
+                        <ul>
+                            <li>Charge et parse les fichiers XML DDI</li>
+                            <li>Définit les routes (URLs) de l'application</li>
+                            <li>Gère les requêtes HTTP et génère les réponses</li>
+                            <li>Charge les ressources externes depuis resources.json</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box success">
+                        <h4> data/ - Vos données sources</h4>
+                        <p>
+                            Placez tous vos fichiers XML DDI ici. L'application les charge automatiquement 
+                            au démarrage. Chaque fichier .xml devient un dataset dans le catalogue.
+                        </p>
+                    </div>
+
+                    <div class="info-box">
+                        <h4> templates/ - Les pages HTML</h4>
+                        <ul>
+                            <li><strong>base.html</strong> : Template parent avec header, nav, footer</li>
+                            <li><strong>index.html</strong> : Page d'accueil avec recherche et stats</li>
+                            <li><strong>catalog.html</strong> : Liste de tous les datasets</li>
+                            <li><strong>dataset.html</strong> : Page détail avec 5 onglets</li>
+                            <li><strong>about.html</strong> : Informations sur le catalogue</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box warning">
+                        <h4> resources.json - Configuration ressources</h4>
+                        <p>
+                            Fichier JSON où vous configurez les liens vers vos fichiers de données, 
+                            questionnaires, rapports et documentation pour chaque dataset.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BACKEND TAB -->
+            <div id="backend" class="tab-content">
+                <div class="section">
+                    <h2> Fonctionnement du Backend (app.py)</h2>
+
+                    <h3> Classe DatasetParser</h3>
+                    <p>Cette classe parse les fichiers XML DDI et extrait toutes les métadonnées.</p>
+                    
+                    <div class="code-block">
+<span class="keyword">class</span> DatasetParser:
+    <span class="keyword">def</span> __init__(self, xml_path):
+        <span class="comment"># Charge le fichier XML</span>
+        self.tree = etree.parse(xml_path)
+        
+    <span class="keyword">def</span> parse_metadata(self):
+        <span class="comment"># Extrait toutes les métadonnées :</span>
+        <span class="comment"># - Titre, ID, abstract</span>
+        <span class="comment"># - Dates, couverture géographique</span>
+        <span class="comment"># - Producteurs, financeurs</span>
+        <span class="comment"># - Méthodologie, échantillon</span>
+        <span class="comment"># - Mots-clés, conditions d'accès</span>
+                    </div>
+
+                    <h3> Fonction load_datasets()</h3>
+                    <p>Charge automatiquement tous les fichiers XML du dossier data/</p>
+                    
+                    <div class="code-block">
+<span class="keyword">def</span> load_datasets():
+    <span class="comment"># 1. Cherche les fichiers .xml dans data/</span>
+    <span class="keyword">for</span> filename <span class="keyword">in</span> os.listdir(<span class="string">'data/'</span>):
+        <span class="keyword">if</span> filename.endswith(<span class="string">'.xml'</span>):
+            <span class="comment"># 2. Parse chaque fichier</span>
+            parser = DatasetParser(filepath)
+            metadata = parser.parse_metadata()
+            
+            <span class="comment"># 3. Stocke dans le dictionnaire DATASETS</span>
+            DATASETS[dataset_id] = {
+                <span class="string">'filename'</span>: filename,
+                <span class="string">'metadata'</span>: metadata
+            }
+                    </div>
+
+                    <h3> Fonction load_external_resources()</h3>
+                    <p>Charge les ressources externes depuis resources.json</p>
+                    
+                    <div class="code-block">
+<span class="keyword">def</span> load_external_resources():
+    <span class="comment"># Lit le fichier resources.json</span>
+    <span class="keyword">with</span> open(<span class="string">'resources.json'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:
+        resources = json.load(f)
+    
+    <span class="comment"># Structure : { "dataset_id": { "data_files": [...], ... } }</span>
+    <span class="keyword">return</span> resources
+                    </div>
+
+                    <h3> Routes de l'application</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Route</th>
+                                <th>Méthode</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/</code></td>
+                                <td>index()</td>
+                                <td>Page d'accueil avec recherche et statistiques</td>
+                            </tr>
+                            <tr>
+                                <td><code>/catalog</code></td>
+                                <td>catalog()</td>
+                                <td>Liste complète des datasets</td>
+                            </tr>
+                            <tr>
+                                <td><code>/dataset/&lt;id&gt;</code></td>
+                                <td>dataset_detail(id)</td>
+                                <td>Page détaillée d'un dataset spécifique</td>
+                            </tr>
+                            <tr>
+                                <td><code>/about</code></td>
+                                <td>about()</td>
+                                <td>Page À propos du catalogue</td>
+                            </tr>
+                            <tr>
+                                <td><code>/search?q=...</code></td>
+                                <td>search()</td>
+                                <td>API de recherche (retourne JSON)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="info-box">
+                        <h4> Comment ça marche ?</h4>
+                        <p>
+                            Quand un utilisateur visite une page (ex: /catalog), Flask :
+                        </p>
+                        <ol>
+                            <li>Appelle la fonction correspondante (catalog())</li>
+                            <li>Prépare les données (liste des datasets)</li>
+                            <li>Rend le template HTML (catalog.html) avec ces données</li>
+                            <li>Envoie le HTML généré au navigateur</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRONTEND TAB -->
+            <div id="frontend" class="tab-content">
+                <div class="section">
+                    <h2> Fonctionnement du Frontend</h2>
+
+                    <h3> Templates Jinja2</h3>
+                    <p>
+                        Les templates utilisent la syntaxe Jinja2 pour insérer dynamiquement les données 
+                        dans le HTML.
+                    </p>
+
+                    <div class="code-block">
+<span class="comment">&lt;!-- Exemple dans index.html --&gt;</span>
+<span class="keyword">&lt;h1&gt;</span>Bienvenue<span class="keyword">&lt;/h1&gt;</span>
+
+<span class="comment">&lt;!-- Boucle sur tous les datasets --&gt;</span>
+<span class="string">{% for</span> dataset_id, dataset <span class="string">in</span> datasets.items() <span class="string">%}</span>
+    <span class="keyword">&lt;div class="dataset-card"&gt;</span>
+        <span class="keyword">&lt;h3&gt;</span><span class="string">{{</span> dataset.metadata.title <span class="string">}}</span><span class="keyword">&lt;/h3&gt;</span>
+        <span class="keyword">&lt;p&gt;</span><span class="string">{{</span> dataset.metadata.abstract <span class="string">}}</span><span class="keyword">&lt;/p&gt;</span>
+    <span class="keyword">&lt;/div&gt;</span>
+<span class="string">{% endfor %}</span>
+                    </div>
+
+                    <h3> Système d'onglets (JavaScript)</h3>
+                    <p>Sur la page détail d'un dataset, les onglets utilisent jQuery :</p>
+
+                    <div class="code-block">
+<span class="comment">// Quand on clique sur un onglet</span>
+$(<span class="string">'.tab'</span>).click(<span class="keyword">function</span>() {
+    <span class="keyword">var</span> tabId = $(this).data(<span class="string">'tab'</span>);
+    
+    <span class="comment">// 1. Retire la classe "active" de tous les onglets</span>
+    $(<span class="string">'.tab'</span>).removeClass(<span class="string">'active'</span>);
+    $(<span class="string">'.tab-content'</span>).removeClass(<span class="string">'active'</span>);
+    
+    <span class="comment">// 2. Ajoute "active" à l'onglet cliqué</span>
+    $(this).addClass(<span class="string">'active'</span>);
+    $(<span class="string">'#'</span> + tabId).addClass(<span class="string">'active'</span>);
+});
+                    </div>
+
+                    <h3> Recherche en temps réel</h3>
+                    <p>Sur la page d'accueil, la recherche envoie des requêtes AJAX :</p>
+
+                    <div class="code-block">
+<span class="comment">// Quand l'utilisateur tape dans la barre de recherche</span>
+$(<span class="string">'#search-input'</span>).on(<span class="string">'input'</span>, <span class="keyword">function</span>() {
+    <span class="keyword">var</span> query = $(this).val();
+    
+    <span class="comment">// Envoie une requête à /search</span>
+    $.get(<span class="string">'/search'</span>, { q: query }, <span class="keyword">function</span>(data) {
+        <span class="comment">// Affiche les résultats</span>
+        afficherResultats(data.results);
+    });
+});
+                    </div>
+
+                    <h3> Styles CSS</h3>
+                    <p>Le fichier style.css utilise des variables CSS pour faciliter la personnalisation :</p>
+
+                    <div class="code-block">
+<span class="keyword">:root</span> {
+    <span class="string">--primary-color</span>: #2563eb;
+    <span class="string">--secondary-color</span>: #64748b;
+    <span class="string">--dark-color</span>: #1e293b;
+    <span class="comment">/* ... */</span>
+}
+
+<span class="keyword">.btn-primary</span> {
+    background: <span class="keyword">var</span>(<span class="string">--primary-color</span>);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+}
+                    </div>
+
+                    <div class="info-box success">
+                        <h4> Design responsive</h4>
+                        <p>
+                            Le CSS utilise des <strong>media queries</strong> et des <strong>grids flexibles</strong> 
+                            pour adapter l'affichage automatiquement sur mobile, tablette et desktop.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FLOW TAB -->
+            <div id="flow" class="tab-content">
+                <div class="section">
+                    <h2> Flux de données de l'application</h2>
+
+                    <h3> Démarrage de l'application</h3>
+                    <div class="flow-diagram">
+                        <div class="flow-item"><br>Lancement<br>python app.py</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item"><br>Lecture<br>fichiers XML</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item"><br>Parsing<br>métadonnées</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item"><br>Chargement<br>resources.json</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item"><br>Serveur<br>prêt ! </div>
+                    </div>
+
+                    <h3> Cycle de vie d'une requête</h3>
+                    
+                    <div class="info-box">
+                        <h4>Exemple : Utilisateur visite /catalog</h4>
+                        <ol>
+                            <li><strong>Navigateur</strong> → Envoie requête GET à http://localhost:5001/catalog</li>
+                            <li><strong>Flask</strong> → Reçoit la requête et appelle catalog()</li>
+                            <li><strong>catalog()</strong> → Récupère DATASETS et EXTERNAL_RESOURCES</li>
+                            <li><strong>Jinja2</strong> → Génère catalog.html avec les données</li>
+                            <li><strong>Flask</strong> → Envoie le HTML au navigateur</li>
+                            <li><strong>Navigateur</strong> → Affiche la page, charge CSS et JS</li>
+                            <li><strong>JavaScript</strong> → Active les fonctionnalités interactives</li>
+                        </ol>
+                    </div>
+
+                    <h3> Flux de recherche</h3>
+                    <div class="flow-diagram">
+                        <div class="flow-item"><br>Utilisateur<br>tape "MICS"</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item"><br>AJAX<br>GET /search?q=MICS</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item"><br>Backend<br>cherche dans<br>DATASETS</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item"><br>Retourne<br>JSON</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item"><br>Affichage<br>résultats</div>
+                    </div>
+
+                    <h3> Flux des ressources externes</h3>
+                    
+                    <div class="code-block">
+<span class="comment">1. Au démarrage :</span>
+   load_external_resources()
+   └─ Lit resources.json
+   └─ Stocke dans EXTERNAL_RESOURCES
+
+<span class="comment">2. Sur page détail (/dataset/ID) :</span>
+   dataset_detail(ID)
+   └─ Récupère metadata de DATASETS[ID]
+   └─ Récupère resources de EXTERNAL_RESOURCES[ID]
+   └─ Passe les deux au template dataset.html
+
+<span class="comment">3. Template affiche :</span>
+   Onglet "Ressources externes"
+   └─ Boucle sur data_files, questionnaires, etc.
+   └─ Affiche cartes cliquables avec liens
+                    </div>
+
+                    <div class="info-box warning">
+                        <h4> Important : Ordre de chargement</h4>
+                        <p>
+                            Les données sont chargées <strong>une seule fois au démarrage</strong>. 
+                            Si vous modifiez les fichiers XML ou resources.json, vous devez 
+                            <strong>redémarrer l'application</strong> pour voir les changements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RESOURCES TAB -->
+            <div id="resources" class="tab-content">
+                <div class="section">
+                    <h2> Gestion des ressources externes</h2>
+
+                    <h3> Qu'est-ce qu'une ressource externe ?</h3>
+                    <p>
+                        Ce sont des fichiers complémentaires que vous voulez rendre accessibles 
+                        aux utilisateurs du catalogue :
+                    </p>
+
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="icon"></div>
+                            <h4>Fichiers de données</h4>
+                            <p>CSV, SPSS, Stata, Excel</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="icon"></div>
+                            <h4>Questionnaires</h4>
+                            <p>Instruments de collecte, manuels</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="icon"></div>
+                            <h4>Rapports</h4>
+                            <p>Publications, synthèses</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="icon"></div>
+                            <h4>Documentation</h4>
+                            <p>Guides, codebooks, protocoles</p>
+                        </div>
+                    </div>
+
+                    <h3> Structure du fichier resources.json</h3>
+                    
+                    <div class="code-block">
+{
+  <span class="string">"BEN-Afrobarometer-EOP-2025-001"</span>: {
+    <span class="string">"data_files"</span>: [
+      {
+        <span class="string">"name"</span>: <span class="string">"Données SPSS"</span>,
+        <span class="string">"description"</span>: <span class="string">"Fichier au format SPSS"</span>,
+        <span class="string">"type"</span>: <span class="string">"spss"</span>,
+        <span class="string">"icon"</span>: <span class="string">"📊"</span>,
+        <span class="string">"url"</span>: <span class="string">"https://exemple.com/data.sav"</span>,
+        <span class="string">"size"</span>: <span class="string">"2.5 MB"</span>
+      }
+    ],
+    <span class="string">"questionnaires"</span>: [ <span class="comment">/* ... */</span> ],
+    <span class="string">"reports"</span>: [ <span class="comment">/* ... */</span> ],
+    <span class="string">"documentation"</span>: [ <span class="comment">/* ... */</span> ]
+  }
+}
+                    </div>
+
+                    <h3> Comment ajouter vos ressources</h3>
+                    <ol>
+                        <li><strong>Ouvrez</strong> resources.json dans un éditeur de texte</li>
+                        <li><strong>Trouvez</strong> l'ID de votre dataset (visible dans l'URL ou le XML)</li>
+                        <li><strong>Ajoutez</strong> vos ressources en suivant le format ci-dessus</li>
+                        <li><strong>Hébergez</strong> vos fichiers sur un serveur web</li>
+                        <li><strong>Mettez</strong> les URLs dans le fichier JSON</li>
+                        <li><strong>Redémarrez</strong> l'application</li>
+                    </ol>
+
+                    <div class="info-box success">
+                        <h4> Astuce : Hébergement des fichiers</h4>
+                        <p>Vous pouvez héberger vos fichiers sur :</p>
+                        <ul>
+                            <li>Votre site web institutionnel</li>
+                            <li>Google Drive (avec lien de partage)</li>
+                            <li>Dropbox, OneDrive</li>
+                            <li>Serveur dédié</li>
+                        </ul>
+                    </div>
+
+                    <h3> Affichage dans le catalogue</h3>
+                    <p>Les ressources apparaissent à 2 endroits :</p>
+
+                    <div class="info-box">
+                        <h4>1. Page Catalogue (/catalog)</h4>
+                        <p>
+                            Sous chaque dataset, un aperçu affiche le nombre de ressources disponibles :
+                        </p>
+                        <div class="code-block" style="color: #e2e8f0;">
+📚 Ressources disponibles
+📊 3 fichier(s) de données
+📝 5 questionnaire(s)
+📄 4 rapport(s)
+📑 4 document(s) technique(s)
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <h4>2. Onglet Ressources externes (/dataset/ID)</h4>
+                        <p>
+                            Un onglet complet avec des cartes élégantes pour chaque ressource, 
+                            organisées par catégorie. Chaque carte affiche :
+                        </p>
+                        <ul>
+                            <li>Icône distinctive</li>
+                            <li>Nom de la ressource</li>
+                            <li>Description</li>
+                            <li>Type et taille du fichier</li>
+                            <li>Bouton de téléchargement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📚 Documentation du Catalogue de Données | Projet AS3 2025/2026</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Pour plus d'informations, consultez les fichiers README.md et guides dans le projet</p>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Masquer tous les contenus
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Retirer active de tous les boutons
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Afficher le contenu sélectionné
+            document.getElementById(tabName).classList.add('active');
+
+            // Activer le bouton cliqué
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

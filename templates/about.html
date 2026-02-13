@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block title %}À propos - Catalogue de Données{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1> À propos du Catalogue</h1>
+        <p>Plateforme de catalogage et d'archivage de données statistiques</p>
+    </div>
+</section>
+
+<section class="about-page">
+    <div class="container">
+        <!-- Mission -->
+        <div class="about-section-detail">
+            <div class="about-icon-large"></div>
+            <h2>Notre Mission</h2>
+            <p class="lead-text">
+                Le Catalogue National de Données a pour mission de faciliter l'accès et la diffusion 
+                des données statistiques pour soutenir la recherche, l'évaluation des politiques publiques 
+                et la prise de décision éclairée basée sur des données factuelles.
+            </p>
+            <p>
+                Ce catalogue centralise les métadonnées des enquêtes et études statistiques réalisées 
+                au Bénin, offrant une interface moderne et intuitive pour explorer, rechercher et 
+                accéder aux ressources de données disponibles.
+            </p>
+        </div>
+
+        <!-- Fonctionnalités -->
+        <div class="about-section-detail">
+            <div class="about-icon-large"></div>
+            <h2>Fonctionnalités Principales</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"></div>
+                    <h3>Recherche Intelligente</h3>
+                    <p>Recherchez dans les titres, résumés et mots-clés des enquêtes avec des résultats en temps réel</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"></div>
+                    <h3>Métadonnées Complètes</h3>
+                    <p>Documentation détaillée selon le standard DDI (Data Documentation Initiative)</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"></div>
+                    <h3>Ressources Externes</h3>
+                    <p>Accès direct aux fichiers de données, questionnaires, rapports et documentation technique</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"></div>
+                    <h3>Interface Responsive</h3>
+                    <p>Accessible depuis ordinateur, tablette ou smartphone avec un design adaptatif</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"></div>
+                    <h3>Accès Ouvert</h3>
+                    <p>Toutes les métadonnées sont librement accessibles sans authentification requise</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"></div>
+                    <h3>Performance Optimale</h3>
+                    <p>Chargement rapide et navigation fluide pour une expérience utilisateur optimale</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Standards -->
+        <div class="about-section-detail">
+            <div class="about-icon-large"></div>
+            <h2>Standards et Normes</h2>
+            <p>
+                Ce catalogue respecte les standards internationaux de documentation de données :
+            </p>
+            <ul class="standards-list">
+                <li>
+                    <strong>DDI (Data Documentation Initiative) 1.2.2</strong> - 
+                    Standard XML pour la documentation des données sociales, comportementales et économiques
+                </li>
+                <li>
+                    <strong>Dublin Core</strong> - 
+                    Métadonnées standardisées pour les ressources numériques
+                </li>
+                <li>
+                    <strong>NADA</strong> - 
+                    Compatibilité avec le système National Data Archive développé par la Banque Mondiale
+                </li>
+            </ul>
+        </div>
+
+        <!-- Statistiques -->
+        <div class="about-section-detail">
+            <div class="about-icon-large"></div>
+            <h2>En Chiffres</h2>
+            <div class="stats-about">
+                <div class="stat-about">
+                    <div class="stat-number-about">{{ datasets|length }}</div>
+                    <div class="stat-label-about">Enquêtes cataloguées</div>
+                </div>
+                <div class="stat-about">
+                    <div class="stat-number-about">
+                        {% set total_vars = namespace(count=0) %}
+                        {% for id, dataset in datasets.items() %}
+                            {% set total_vars.count = total_vars.count + dataset.metadata.var_qty|int %}
+                        {% endfor %}
+                        {{ total_vars.count }}
+                    </div>
+                    <div class="stat-label-about">Variables documentées</div>
+                </div>
+                <div class="stat-about">
+                    <div class="stat-number-about">100%</div>
+                    <div class="stat-label-about">Accès libre et gratuit</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technologies -->
+        <div class="about-section-detail">
+            <div class="about-icon-large"></div>
+            <h2>Technologies Utilisées</h2>
+            <p>
+                Ce catalogue est développé avec des technologies modernes et éprouvées :
+            </p>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <strong>Backend</strong>
+                    <p>Python Flask 3.x</p>
+                </div>
+                <div class="tech-item">
+                    <strong>Parser XML</strong>
+                    <p>lxml pour extraction DDI</p>
+                </div>
+                <div class="tech-item">
+                    <strong>Frontend</strong>
+                    <p>HTML5, CSS3, JavaScript</p>
+                </div>
+                <div class="tech-item">
+                    <strong>Base de données</strong>
+                    <p>Extraction dynamique depuis XML</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="about-section-detail">
+            <div class="about-icon-large"></div>
+            <h2>Contact</h2>
+            <p>Pour toute question ou suggestion concernant ce catalogue :</p>
+            <div class="contact-info">
+                <p><strong>Email :</strong> instad@instad.bj</p>
+                <p><strong>Téléphone :</strong> +229 21 30 82 44</p>
+                <p><strong>Adresse :</strong> Cotonou, Bénin</p>
+            </div>
+        </div>
+
+        <!-- Projet -->
+        <div class="about-section-detail project-info">
+            <h3>Projet Académique</h3>
+            <p>
+                Ce catalogue a été développé dans le cadre du projet d'archivage de données 
+                du programme d'Analyse Statistique (AS3) 2025/2026 de l'ENSAE Dakar.
+            </p>
+            <p>
+                <strong>Outils utilisés :</strong> Nesstar Publisher pour la documentation initiale, 
+                Flask pour l'interface web de diffusion.
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}
